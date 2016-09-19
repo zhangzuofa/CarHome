@@ -2,9 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ahsdkaskdsa"/>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <android.support.design.widget.TabLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forum_tb"
+        android:layout_centerInParent="true"
+        >
+    </android.support.design.widget.TabLayout>
+
+ <ImageView
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:background="@mipmap/ahlib_nav_icon_search_p"
+     android:layout_alignParentRight="true"
+     android:layout_margin="10dp"/>
+</RelativeLayout>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forum_vp"
+        >
+
+    </android.support.v4.view.ViewPager>
+
 
 </LinearLayout>

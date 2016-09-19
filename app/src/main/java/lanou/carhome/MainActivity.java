@@ -1,8 +1,18 @@
 package lanou.carhome;
 
-import lanou.carhome.baseclass.BaseActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.RadioButton;
 
-public class MainActivity extends BaseActivity {
+import lanou.carhome.baseclass.BaseActivity;
+import lanou.carhome.find.FindFragment;
+import lanou.carhome.findcarfragment.FIndCarFragment;
+import lanou.carhome.forumfragment.ForumFragment;
+import lanou.carhome.personnal.PersonFragment;
+import lanou.carhome.recommedfragment.RecommedFragment;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     @Override
@@ -13,11 +23,54 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        RadioButton radioBtnRecom = bindView(R.id.main_radiobtn_recommed);
+        RadioButton radioBtnForum = bindView(R.id.main_radiobtn_forum);
+        RadioButton radioBtnFindCar = bindView(R.id.main_radiobtn_findcar);
+        RadioButton radioBtnFind =bindView(R.id.main_radiobtn_find);
+        RadioButton radioBtnPerson = bindView(R.id.main_radiobtn_personnal);
+        radioBtnRecom.setOnClickListener(this);
+        radioBtnForum.setOnClickListener(this);
+        radioBtnFindCar.setOnClickListener(this);
+        radioBtnFind.setOnClickListener(this);
+        radioBtnPerson.setOnClickListener(this);
 
     }
 
     @Override
     protected void initDate() {
+
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction =manager.beginTransaction();
+        switch (v.getId()){
+            case R.id.main_radiobtn_recommed:
+                transaction.replace(R.id.main_framelayout,new RecommedFragment());
+
+                break;
+            case R.id.main_radiobtn_forum:
+                transaction.replace(R.id.main_framelayout,new ForumFragment());
+                break;
+            case R.id.main_radiobtn_findcar:
+                transaction.replace(R.id.main_framelayout,new FIndCarFragment());
+                break;
+            case R.id.main_radiobtn_find:
+                transaction.replace(R.id.main_framelayout,new FindFragment());
+                break;
+            case R.id.main_radiobtn_personnal:
+                transaction.replace(R.id.main_framelayout,new PersonFragment());
+                break;
+            default:
+                break;
+
+        }
+        transaction.commit();
+
+
 
     }
 }

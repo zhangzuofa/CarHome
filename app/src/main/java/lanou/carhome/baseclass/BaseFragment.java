@@ -33,9 +33,9 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        initDate();
         initView();
+        initDate();
+
     }
     protected abstract void initDate();
     protected abstract void initView();
