@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="lanou.carhome.MainActivity">
+
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="8"
+       android:id="@+id/main_framelayout">
+       
+
+   </FrameLayout>
+    
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <RadioButton
+        android:id="@+id/main_radiobtn_recommed"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:button="@null"
+        android:text="推荐"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        />
+        <RadioButton
+            android:id="@+id/main_radiobtn_forum"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="论坛"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            />
+        <RadioButton
+            android:id="@+id/main_radiobtn_findcar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="找车"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            />
+
+        <RadioButton
+            android:id="@+id/main_radiobtn_find"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="发现"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            />
+        <RadioButton
+            android:id="@+id/main_radiobtn_personnal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="个人"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            />
+
+
+    </RadioGroup>
+</LinearLayout>
