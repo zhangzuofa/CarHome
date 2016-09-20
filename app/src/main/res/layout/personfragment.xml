@@ -2,6 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ahlib_video_load_progress_icon"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"/>
+
+</RelativeLayout>
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/ahlib_userpic_default"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账号登录"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:textColor="#000002"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <ImageView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:src="@mipmap/ahlib_share_wibo"
+          />
+      <ImageView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:src="@mipmap/ahlib_share_qq"
+          />
+      <ImageView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:src="@mipmap/ahlib_share_wecat"
+          />
+
+
+  </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#a7a5a4"/>
+
 
 
 </LinearLayout>

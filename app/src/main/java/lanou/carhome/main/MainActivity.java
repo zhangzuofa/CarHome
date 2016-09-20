@@ -1,10 +1,11 @@
-package lanou.carhome;
+package lanou.carhome.main;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 
+import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseActivity;
 import lanou.carhome.find.FindFragment;
 import lanou.carhome.findcarfragment.FIndCarFragment;
