@@ -33,7 +33,7 @@ public class ForumFragment extends BaseFragment {
 
     @Override
     protected void initDate() {
-        ForumFragAdapter adapter = new ForumFragAdapter(getFragmentManager());
+        ForumFragAdapter adapter = new ForumFragAdapter(getChildFragmentManager());
         ArrayList<Fragment>fragments = new ArrayList<>();
         ArrayList<String>titlce = new ArrayList<>();
         titlce.add("精选");

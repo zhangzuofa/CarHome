@@ -16,11 +16,21 @@
     </android.support.design.widget.TabLayout>
 
  <ImageView
+     android:id="@+id/forum_fragemnt_img_dadajing"
     android:layout_width="30dp"
     android:layout_height="30dp"
     android:background="@mipmap/ahlib_nav_icon_search_p"
-     android:layout_alignParentRight="true"
+    android:layout_toLeftOf="@+id/forum_fragemnt_img_santiao"
      android:layout_margin="10dp"/>
+    <ImageView
+        android:id="@+id/forum_fragemnt_img_santiao"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@mipmap/santiaoxian"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"/>
+
+
 </RelativeLayout>
 
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="53dp"
+    android:background="@mipmap/jingpinquanbu"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+
+        >
+        <Button
+            android:id="@+id/btn_Wife"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blu"
+            android:textColor="#3f89fe"
+            android:text="媳妇当车模"/>
+        <Button
+            android:id="@+id/btn_Beauty"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blu"
+            android:textColor="#3f89fe"
+            android:text="美人''记''"/>
+        <Button
+            android:id="@+id/btn_Top"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blu"
+            android:textColor="#3f89fe"
+            android:text="高端阵地"/>
+        <Button
+            android:id="@+id/btn_MO"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blu"
+            android:textColor="#3f89fe"
+            android:text="魔友天地"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+
+        >
+        <Button
+            android:id="@+id/btn_chose"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_orange"
+            android:textColor="#eda530"
+            android:text="精挑细选"/>
+        <Button
+            android:id="@+id/btn_SisterCar"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_blu"
+            android:textColor="#3f89fe"
+            android:text="妹子选车"/>
+        <Button
+            android:id="@+id/btn_red"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_orange"
+            android:textColor="#eda530"
+            android:text="论坛红人馆"/>
+        <Button
+            android:id="@+id/btn_chageCar"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_orange"
+            android:textColor="#eda530"
+            android:text="改装有理"/>
+    </LinearLayout>
+
+ <TextView
+     android:layout_marginTop="20dp"
+     android:layout_width="match_parent"
+     android:layout_height="11dp"
+     android:background="#f0eff6"
+     />
+    <ImageView
+
+       android:id="@+id/forumed_TopView_image_24Hour"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@mipmap/ersixiaoshi"
+       />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f0eff6"
+        />
+
+
+
+</LinearLayout>

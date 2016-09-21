@@ -65,7 +65,15 @@ public class RecommedAdapter extends BaseAdapter {
 
 
        viewHolder.tv_titcle.setText(bean.getResult().getNewslist().get(position).getTitle());
-       viewHolder.tv_comment.setText("" + bean.getResult().getNewslist().get(position).getReplycount()+ "评论");
+        if (bean.getResult().getNewslist().get(position).getMediatype() == 3){
+            viewHolder.tv_comment.setText("" + bean.getResult().getNewslist().get(position).getReplycount()+ "播放");
+        }else if (bean.getResult().getNewslist().get(position).getMediatype() == 6){
+            viewHolder.tv_comment.setText( "图说"+ " " + bean.getResult().getNewslist().get(position).getReplycount()+ "评论");
+
+        }else {
+            viewHolder.tv_comment.setText("" + bean.getResult().getNewslist().get(position).getReplycount()+ "评论");
+        }
+
         viewHolder.tv_time.setText(bean.getResult().getNewslist().get(position).getTime());
 
         if (!bean.getResult().getNewslist().get(position).getSmallpic().isEmpty()){

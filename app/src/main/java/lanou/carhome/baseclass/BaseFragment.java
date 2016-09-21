@@ -37,15 +37,16 @@ public abstract class BaseFragment extends Fragment {
         initDate();
 
     }
-    protected abstract void initDate();
     protected abstract void initView();
+
+
     protected <T extends View> T bindView(int id){
         return (T)getView().findViewById(id);
     }
     protected <T extends View> T bindView(int id,View v){
-        return (T)getView().findViewById(id);
+        return (T)v.findViewById(id);
     }
-
+    protected abstract void initDate();
 
 
 }
