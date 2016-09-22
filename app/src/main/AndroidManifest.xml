@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".forumfragment.hotforum.HotActivity"/>
+        <activity android:name=".forumfragment.slectedrecommedacitivity.SelectedRecommedAcitivity"/>
+        <activity android:name=".forumfragment.threetyeight.SelectedThreeEightActivity"/>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     android:background="#ffffff">
 
 <ImageView
+    android:id="@+id/Forumed_topView_img_jingxuan"
     android:layout_width="match_parent"
     android:layout_height="53dp"
     android:background="@mipmap/jingpinquanbu"/>
@@ -95,12 +96,12 @@
      android:layout_height="11dp"
      android:background="#f0eff6"
      />
-    <ImageView
+   <ImageView
 
        android:id="@+id/forumed_TopView_image_24Hour"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@mipmap/ersixiaoshi"
+        android:background="@drawable/forumedtopimg"
        />
     <TextView
         android:layout_width="match_parent"

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:id="@+id/img_hotActy"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/nav_icon_findcar_p"/>
+    <RelativeLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        >
+        <TextView
+
+            android:id="@+id/hotActy_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这是昵称"
+            />
+        <TextView
+            android:id="@+id/time_tv_hotAvty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这是时间"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:textColor="#0b0b0b"
+            android:id="@+id/tv_title_hotActy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="这是标题"
+            android:layout_below="@+id/time_tv_hotAvty"
+            android:textSize="25sp"/>
+        <TextView
+            android:id="@+id/tv_forumed_hotActy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="论坛名"
+            android:layout_alignParentBottom="true"
+            />
+        <TextView
+            android:id="@+id/tv_num_hotActy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回帖数"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package lanou.carhome.forumfragment.formed;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseFragment;
+import lanou.carhome.forumfragment.hotforum.HotActivity;
+import lanou.carhome.forumfragment.slectedrecommedacitivity.SelectedRecommedAcitivity;
 import lanou.carhome.volley.GsonRequest;
 import lanou.carhome.volley.URLValues;
 import lanou.carhome.volley.VollaySingleton;
@@ -37,6 +40,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
     private Button btnRed;
     private Button btnChage;
     private ImageView imgViewTop;
+    private ImageView imgViewTopJXImg;
 
 
     @Override
@@ -119,6 +123,9 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
         btnChage = bindView(R.id.btn_chageCar,viewTop);
         imgViewTop = bindView(R.id.forumed_TopView_image_24Hour,viewTop);
         imgViewTop.setOnClickListener(this);
+        imgViewTopJXImg = bindView(R.id.Forumed_topView_img_jingxuan,viewTop);
+        imgViewTopJXImg.setOnClickListener(this);
+
 
 
 
@@ -152,6 +159,17 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.forumed_TopView_image_24Hour:
+
+
+                Intent intent = new Intent(getActivity(), HotActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.Forumed_topView_img_jingxuan:
+              Intent intent1 = new Intent(getActivity(),SelectedRecommedAcitivity.class);
+                startActivity(intent1);
+
+
+                break;
 
 
         }
