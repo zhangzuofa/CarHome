@@ -2,12 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ListView
+    <ImageView
+        android:id="@+id/selectedThEightActivity_img"
+        android:layout_margin="7dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/ahlib_nav_icon_back"/>
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/selectRecomThreeEight_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/three_Lv"
-        >
+        />
 
-    </ListView>
+
 
 </LinearLayout>

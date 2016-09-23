@@ -56,6 +56,7 @@ public class SelectedRecommedAcitivity extends BaseActivity implements View.OnCl
                 intent.putExtra("哈哈",position);
 
                 startActivity(intent);
+                finish();
 
 
             }

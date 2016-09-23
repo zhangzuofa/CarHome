@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import lanou.carhome.R;
 
@@ -51,15 +54,25 @@ public class ThreeAdapter extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tv.setText(bean.getResult().getList().get(position).getTitle());
+        viewHolder.tvTitle.setText(bean.getResult().getList().get(position).getTitle());
+        viewHolder.tvForum.setText(bean.getResult().getList().get(position).getBbsname());
+        viewHolder.tvNum.setText(bean.getResult().getList().get(position).getReplycounts()+"回帖");
+        Picasso.with(mContext).load(bean.getResult().getList().get(position).getSmallpic()).into(viewHolder.img);
         return convertView;
     }
    class ViewHolder{
 
-      TextView tv;
+      TextView tvTitle;
+       TextView tvForum;
+       TextView tvNum;
+       ImageView img;
 
        public ViewHolder(View view){
-           tv = (TextView) view.findViewById(R.id.tv_three);
+           tvTitle = (TextView) view.findViewById(R.id.threeNine_tv_title);
+           tvForum = (TextView) view.findViewById(R.id.threeNine_tv_forum);
+           tvNum = (TextView) view.findViewById(R.id.threeNine_tv_num);
+           img = (ImageView) view.findViewById(R.id.threeNine_img);
+
 
        }
    }

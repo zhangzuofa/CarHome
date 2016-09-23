@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="sssssdasdasd"/>
-</LinearLayout>
+    <ImageView
+        android:id="@+id/seletedFrag_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ahlib_load_empty"
+        android:layout_centerInParent="true"
+        />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="暂无收藏论坛"
+        android:layout_below="@+id/seletedFrag_img"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

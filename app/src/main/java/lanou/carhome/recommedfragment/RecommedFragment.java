@@ -59,6 +59,7 @@ public class RecommedFragment extends BaseFragment {
 
 
 
+
     }
     public void initSend(){
         GsonRequest<ReconmmedBean> gsonRequest =new GsonRequest<ReconmmedBean>(URLValues.URL_NEW, ReconmmedBean.class,

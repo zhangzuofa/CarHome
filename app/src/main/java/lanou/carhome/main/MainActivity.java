@@ -39,6 +39,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initDate() {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction =manager.beginTransaction();
+        transaction.replace(R.id.main_framelayout,new RecommedFragment());
+        transaction.commit();
 
 
 

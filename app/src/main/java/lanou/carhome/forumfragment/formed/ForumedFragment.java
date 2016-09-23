@@ -19,6 +19,7 @@ import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseFragment;
 import lanou.carhome.forumfragment.hotforum.HotActivity;
 import lanou.carhome.forumfragment.slectedrecommedacitivity.SelectedRecommedAcitivity;
+import lanou.carhome.forumfragment.threetyeight.SelectedThreeEightActivity;
 import lanou.carhome.volley.GsonRequest;
 import lanou.carhome.volley.URLValues;
 import lanou.carhome.volley.VollaySingleton;
@@ -125,6 +126,16 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
         imgViewTop.setOnClickListener(this);
         imgViewTopJXImg = bindView(R.id.Forumed_topView_img_jingxuan,viewTop);
         imgViewTopJXImg.setOnClickListener(this);
+        btnWife.setOnClickListener(this);
+        btnBesuty.setOnClickListener(this);
+        btnTop.setOnClickListener(this);
+        btnMo.setOnClickListener(this);
+        btnChose.setOnClickListener(this);
+        btnSister.setOnClickListener(this);
+        btnRed.setOnClickListener(this);
+        btnChage.setOnClickListener(this);
+
+
 
 
 
@@ -170,6 +181,53 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
 
                 break;
+            case R.id.btn_Wife:
+                Intent intentWife = new Intent(getContext(),SelectedThreeEightActivity.class);
+
+                intentWife.putExtra("哈哈",0);
+                startActivity(intentWife);
+                break;
+            case R.id.btn_Beauty:
+                Intent intentBeauty = new Intent(getContext(),SelectedThreeEightActivity.class);
+
+                intentBeauty.putExtra("哈哈",1);
+                startActivity(intentBeauty);
+
+                break;
+            case R.id.btn_Top:
+                Intent intentTop  = new Intent(getContext(),SelectedThreeEightActivity.class);
+                intentTop.putExtra("哈哈",6);
+                startActivity(intentTop);
+                break;
+            case R.id.btn_MO:
+                Intent intentMo  = new Intent(getContext(),SelectedThreeEightActivity.class);
+                intentMo.putExtra("哈哈",22);
+                startActivity(intentMo);
+
+                break;
+            case R.id.btn_chose:
+                Intent intentChose  = new Intent(getContext(),SelectedThreeEightActivity.class);
+                intentChose.putExtra("哈哈",4);
+                startActivity(intentChose);
+                break;
+            case R.id.btn_SisterCar:
+                Intent intentSisterCar  = new Intent(getContext(),SelectedThreeEightActivity.class);
+                intentSisterCar.putExtra("哈哈",13);
+                startActivity(intentSisterCar);
+
+                break;
+            case R.id.btn_red:
+                Intent intentRed  = new Intent(getContext(),SelectedThreeEightActivity.class);
+                intentRed.putExtra("哈哈",2);
+                startActivity(intentRed);
+
+                break;
+            case R.id.btn_chageCar:
+                Intent intentChageCar  = new Intent(getContext(),SelectedThreeEightActivity.class);
+                intentChageCar.putExtra("哈哈",17);
+                startActivity(intentChageCar);
+                break;
+
 
 
         }
