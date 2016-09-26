@@ -64,6 +64,16 @@ public class FindBean {
             private String cardtype;
             private int datasource;
             private String description;
+            private String imageurl;
+
+            public String getImageurl() {
+                return imageurl;
+            }
+
+            public void setImageurl(String imageurl) {
+                this.imageurl = imageurl;
+            }
+
             /**
              * imageurl : http://app2.autoimg.cn/appdfs/g18/M0A/4F/80/autohomecar__wKgH2VfjgrGAf45ZAAG4O89fQA0913.jpg
              * link : autohome://insidebrowser?url=http%3a%2f%2fm.mall.autohome.com.cn%2ftopic%2f2016%2f9%2f921%2f%23pvareaid%3d104735

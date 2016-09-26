@@ -10,7 +10,7 @@ public final class URLValues {
     public final static String FORUMED_URL="http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=0&pageindex=1&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=1&netstate=0&gps=38.889726%2C121.550943";
     public final static String Hot_URL = "http://183.232.160.141/club.app.autohome.com.cn/club_v7.0.5/club/shotfoumlist-pm2-p1-s50.json";
 
-    public static final String WIFE_MODEL_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c104-p1-s30.json";//媳妇当车模
+    public static final String WIFE_MODEL_URL = "http://url.cn/29qrugI";//媳妇当车模
     public static final String NOTORIOUS_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c110-p1-s30.json";//美人”记”
     public static final String HOF_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c172-p1-s30.json";//论坛名人堂
     public static final String LECTURER_URL = "http://app.api.autohome.com.cn/autov4.8.8/club/jingxuantopic-pm1-c230-p1-s30.json";//论坛讲师

@@ -19,9 +19,11 @@ import lanou.carhome.find.FindBean;
 public class ForMeAdapter extends RecyclerView.Adapter<ForMeAdapter.ViewHolder> {
     Context mContext;
     FindBean bean;
+    private int num;
 
     public void setBean(FindBean bean) {
         this.bean = bean;
+
     }
 
     public ForMeAdapter(Context mContext) {
@@ -37,11 +39,12 @@ public class ForMeAdapter extends RecyclerView.Adapter<ForMeAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvTitle.setText(bean.getResult().getCardlist().get(10).getData().get(position).getTitle());
-        holder.tvCheap.setText(bean.getResult().getCardlist().get(10).getData().get(position).getSubtitle());
-        holder.tvPrice.setText(bean.getResult().getCardlist().get(10).getData().get(position).getCurrentprice());
-        holder.tvOldPrice.setText(bean.getResult().getCardlist().get(10).getData().get(position).getPrice());
-        Picasso.with(mContext).load(bean.getResult().getCardlist().get(10).getData().get(position).getImageurl()).into(holder.img);
+
+        holder.tvTitle.setText(bean.getResult().getCardlist().get(num - 2).getData().get(position).getTitle());
+        holder.tvCheap.setText(bean.getResult().getCardlist().get(num - 2).getData().get(position).getSubtitle());
+        holder.tvPrice.setText(bean.getResult().getCardlist().get(num - 2).getData().get(position).getCurrentprice());
+        holder.tvOldPrice.setText(bean.getResult().getCardlist().get(num - 2).getData().get(position).getPrice());
+        Picasso.with(mContext).load(bean.getResult().getCardlist().get(num - 2).getData().get(position).getImageurl()).into(holder.img);
 
 
 
@@ -49,7 +52,8 @@ public class ForMeAdapter extends RecyclerView.Adapter<ForMeAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return bean.getResult().getCardlist().get(10).getData().size();
+        num = bean.getResult().getCardlist().size();
+        return bean == null? 0:bean.getResult().getCardlist().get(num - 2).getData().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

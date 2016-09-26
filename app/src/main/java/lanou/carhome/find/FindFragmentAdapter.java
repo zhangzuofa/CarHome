@@ -16,7 +16,9 @@ import lanou.carhome.R;
  * Created by dllo on 16/9/23.
  */
 public class FindFragmentAdapter extends BaseAdapter {
+
     FindBean bean;
+    private int num;
 
     public void setBean(FindBean bean) {
         this.bean = bean;
@@ -28,9 +30,12 @@ public class FindFragmentAdapter extends BaseAdapter {
         this.mContext = mContext;
     }
 
+
+
     @Override
     public int getCount() {
-        return bean == null ? 0: bean.getResult().getCardlist().get(11).getData().size();
+        num = bean.getResult().getCardlist().size();
+        return bean == null ? 0: bean.getResult().getCardlist().get(num-1).getData().size();
     }
 
     @Override
@@ -45,6 +50,7 @@ public class FindFragmentAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         ViewHolder viewHolder =null;
         if (convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_findfragment,null);
@@ -54,14 +60,15 @@ public class FindFragmentAdapter extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-       viewHolder.tvTitle.setText(bean.getResult().getCardlist().get(11).getData().get(position).getTitle());
-        viewHolder.tvAdinfo.setText(bean.getResult().getCardlist().get(11).getData().get(position).getAdinfo());
-        viewHolder.tvPrice.setText(bean.getResult().getCardlist().get(11).getData().get(position).getPrice());
-        if (!bean.getResult().getCardlist().get(11).getData().get(position).getFctprice().equals("")){
-            viewHolder.tvOldPrice.setText(bean.getResult().getCardlist().get(11).getData().get(position).getFctprice());
+
+       viewHolder.tvTitle.setText(bean.getResult().getCardlist().get(num-1).getData().get(position).getTitle());
+        viewHolder.tvAdinfo.setText(bean.getResult().getCardlist().get(num-1).getData().get(position).getAdinfo());
+        viewHolder.tvPrice.setText(bean.getResult().getCardlist().get(num-1).getData().get(position).getPrice());
+        if (!bean.getResult().getCardlist().get(num-1).getData().get(position).getFctprice().equals("")){
+            viewHolder.tvOldPrice.setText(bean.getResult().getCardlist().get(num-1).getData().get(position).getFctprice());
 
         }
-        Picasso.with(mContext).load(bean.getResult().getCardlist().get(11).getData().get(position).getLogo()).into(viewHolder.img);
+        Picasso.with(mContext).load(bean.getResult().getCardlist().get(num-1).getData().get(position).getLogo()).into(viewHolder.img);
 
 
 

@@ -71,7 +71,7 @@
         android:background="#f5f4f3"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="@mipmap/shoucan"/>
         <TextView
             android:layout_marginTop="10dp"
@@ -80,7 +80,7 @@
             android:background="#f5f4f3"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="@mipmap/xinyouhuijuan"/>
         <TextView
             android:layout_marginTop="10dp"
@@ -89,11 +89,11 @@
             android:background="#f5f4f3"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="@mipmap/liulanlishi"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="@mipmap/wodecaogao"/>
         <TextView
             android:layout_marginTop="10dp"
@@ -102,7 +102,7 @@
             android:background="#f5f4f3"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="@mipmap/shezhi"/>
 
 

@@ -3,23 +3,135 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
 
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="活动专区"
+            android:textColor="#0b0a0a"/>
+     <ImageView
+         android:id="@+id/item_forme_img_back"
+         android:layout_width="20dp"
+         android:layout_height="20dp"
+         android:src="@mipmap/ahlib_arrow_next"
+         android:layout_alignParentRight="true"
+         android:layout_margin="9dp"/>
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="更多活动"
+         android:textSize="13dp"
+         android:layout_toLeftOf="@+id/item_forme_img_back"
+         android:layout_margin="13dp"/>
+
+    </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e3e3"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <ImageView
+              android:id="@+id/forme_moreSports_img_one"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:src="@mipmap/shuoke"/>
+          <ImageView
+              android:id="@+id/forme_moreSports_img_two"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:src="@mipmap/shuoke"/>
+          <ImageView
+              android:id="@+id/forme_moreSports_img_three"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:src="@mipmap/shuoke"/>
+
+      </LinearLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/forme_daikuan_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="猜你喜欢"
+            android:textColor="#0b0a0a"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e6e3e3"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/foryou_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#fcf5f5"/>
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:textSize="15sp"
-        android:text="为我推荐"
-        android:gravity="center_vertical"/>
+        android:text="为你推荐"
+        android:textColor="#0b0a0a"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
 <android.support.v7.widget.RecyclerView
     android:id="@+id/forme_RecycleV"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
 </android.support.v7.widget.RecyclerView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="6dp"
-        android:background="#fcf5f5"/>
+        android:background="#e6e3e3"/>
 
+</LinearLayout>
 </LinearLayout>

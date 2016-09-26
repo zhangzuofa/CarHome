@@ -7,14 +7,84 @@
     <com.youth.banner.Banner
         android:id="@+id/banner_findFragmentTopView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="110dp"
          >
 
     </com.youth.banner.Banner>
 
 <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/findtop_findfragment_img_Ad"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/findtop_findfragment_img_Ad"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/findFragment_topView_rcyelerView_yewu">
+
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+    <ImageView
+        android:id="@+id/findtop_findfragment_img_findTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+  </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
+    <TextView
+           android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="服务专区"
+            android:textColor="#0b0a0a"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/findFragment_topView_recyclerView_serve">
+
+        </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="限时抢购"
+        android:textColor="#0b0a0a"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e3e3"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/findFragment_topView_rcyelerView_timeLimit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
 
 </LinearLayout>
