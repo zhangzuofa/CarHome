@@ -1,7 +1,9 @@
 package lanou.carhome.forumfragment.hotforum;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -50,6 +52,29 @@ public class HotActivity  extends BaseActivity implements View.OnClickListener {
 
 
 
+
+    }
+
+    private void innitOnClickListView(final HotBean response) {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent =  new Intent(HotActivity.this,HotForumDetailActivity.class);
+
+                String str1 = "http://forum.app.autohome.com.cn/autov5.0.0/forum/club/topiccontent-a2-pm2-v5.0.0-t";
+                String str2 ="-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw320.json" ;
+               // Log.d("这是啥", "response.getResult().getList().get(position).getTopicid():" + response.getResult().getList().get(position).getTopicid());
+                String str = str1 + response.getResult().getList().get(position - 2).getTopicid()+ str2;
+              //  Log.d("HotActivityhahhahahaha", str);
+
+             //   intent.putExtra("热帖位置",position);
+                intent.putExtra("热帖详情",str);
+
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     private void innitPullToRefresh() {
@@ -79,6 +104,7 @@ public class HotActivity  extends BaseActivity implements View.OnClickListener {
                 HotAdapter adapter = new HotAdapter(HotActivity.this);
                 adapter.setBean(response);
                 listView.setAdapter(adapter);
+                innitOnClickListView(response);
 
 
             }

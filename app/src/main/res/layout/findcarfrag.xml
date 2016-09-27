@@ -3,8 +3,44 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <android.support.design.widget.TabLayout
+            android:id="@+id/findCarFragmentTb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+        </android.support.design.widget.TabLayout>
+
+        <ImageView
+            android:id="@+id/findCarFragment_AddImg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/jiajian"
+            android:layout_toLeftOf="@+id/findCarFragment_VS"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:id="@+id/findCarFragment_VS"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="20sp"
+            android:text="VS"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"/>
+
+
+    </RelativeLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/findCarFragmentVp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="哈哈"/>
+        >
+
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

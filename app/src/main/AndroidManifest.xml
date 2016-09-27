@@ -19,6 +19,8 @@
         <activity android:name=".forumfragment.hotforum.HotActivity"/>
         <activity android:name=".forumfragment.slectedrecommedacitivity.SelectedRecommedAcitivity"/>
         <activity android:name=".forumfragment.threetyeight.SelectedThreeEightActivity"/>
+        <activity android:name=".forumfragment.hotforum.HotForumDetailActivity"/>
+        <activity android:name=".forumfragment.formed.ForumedWebVIewActivity"/>
     </application>
 
 </manifest>

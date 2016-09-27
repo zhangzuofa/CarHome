@@ -3,6 +3,7 @@ package lanou.carhome.forumfragment.formed;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -141,6 +142,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
 
 
+
     }
     public void innitInternet(){
         GsonRequest<ForumedBean> gsonRequest  = new GsonRequest<ForumedBean>(URLValues.FORUMED_URL, ForumedBean.class,
@@ -151,6 +153,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
                         FroumedAdapter adapter = new FroumedAdapter(getContext());
                         adapter.setBean(response);
                         forumListV.setAdapter(adapter);
+                        inintOnClickLisener(response);
 
 
 
@@ -164,6 +167,24 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
         });
         VollaySingleton.getInstance().addRequest(gsonRequest);
 
+    }
+
+    private void inintOnClickLisener(final ForumedBean response) {
+
+        forumListV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intentWeb = new Intent(getActivity(),ForumedWebVIewActivity.class);
+                String str1 = "http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t";
+                String str2 = "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw360.json " ;
+                String str = str1 + response.getResult().getList().get(position - 2).getTopicid() + str2;
+                intentWeb.putExtra("论坛详情网址",str);
+
+                startActivity(intentWeb);
+
+
+            }
+        });
     }
 
     @Override
