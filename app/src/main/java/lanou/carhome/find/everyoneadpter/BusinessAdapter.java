@@ -40,8 +40,8 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Picasso.with(mContext).load(bean.getResult().getCardlist().get(2).getData().get(position).getImageurl()).into(holder.img);
-        holder.tv.setText(bean.getResult().getCardlist().get(2).getData().get(position).getTitle());
+        Picasso.with(mContext).load(bean.getResult().getCardlist().get(1).getData().get(position).getImageurl()).into(holder.img);
+        holder.tv.setText(bean.getResult().getCardlist().get(1).getData().get(position).getTitle());
 
 
     }
@@ -49,7 +49,7 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHo
     @Override
     public int getItemCount() {
 
-        return bean == null ? 0 : bean.getResult().getCardlist().get(2).getData().size();
+        return bean == null ? 0 : bean.getResult().getCardlist().get(1).getData().size();
 
     }
 

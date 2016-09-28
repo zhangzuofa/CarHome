@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#d8d8df"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+            <ImageView
+                android:layout_marginTop="3dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@mipmap/ahlib_nav_icon_search_p"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索车系"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+   <RelativeLayout
+      android:layout_marginLeft="15dp"
+       android:layout_marginRight="15dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
+
+
+
+       <RadioButton
+           android:padding="10dp"
+           android:id="@+id/car_top_tv_simple"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/select_hotcar"
+           android:gravity="center"
+           android:text="入门代步"
+           android:textColor="#1a1818"
+           android:button="@null"
+           />
+       <RadioButton
+           android:layout_marginTop="12dp"
+           android:padding="10dp"
+           android:id="@+id/car_top_tv_sister"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/select_hotcar"
+           android:gravity="center"
+           android:text="撩妹神器"
+           android:layout_below="@+id/car_top_tv_simple"
+           android:textColor="#1a1818"
+           android:button="@null"/>
+
+
+       <RadioButton
+           android:layout_marginLeft="13dp"
+           android:padding="10dp"
+           android:id="@+id/car_top_tv_white"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/select_hotcar"
+           android:gravity="center"
+           android:text="入门代步"
+           android:textColor="#1a1818"
+           android:layout_toRightOf="@+id/car_top_tv_simple"
+           android:button="@null"/>
+       <RadioButton
+           android:layout_marginLeft="13dp"
+           android:layout_marginTop="12dp"
+           android:padding="10dp"
+           android:id="@+id/car_top_tv_hard"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/select_hotcar"
+           android:gravity="center"
+           android:text="硬派越野"
+           android:layout_below="@+id/car_top_tv_white"
+           android:layout_toRightOf="@+id/car_top_tv_sister"
+           android:textColor="#1a1818"
+           android:button="@null"/>
+       <RadioButton
+           android:layout_marginLeft="13dp"
+           android:padding="10dp"
+           android:id="@+id/car_top_tv_suv"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/select_hotcar"
+           android:gravity="center"
+           android:text="入门代步哈哈"
+           android:textColor="#1a1818"
+           android:layout_toRightOf="@+id/car_top_tv_white"
+           android:button="@null"/>
+       <RadioButton
+           android:layout_marginLeft="13dp"
+           android:layout_marginTop="12dp"
+           android:padding="10dp"
+           android:id="@+id/car_top_tv_svp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/select_hotcar"
+           android:gravity="center"
+           android:text="7座大空间"
+           android:layout_below="@+id/car_top_tv_white"
+           android:layout_toRightOf="@+id/car_top_tv_hard"
+           android:textColor="#1a1818"
+           android:button="@null"/>
+
+
+
+   </RelativeLayout>
+    </RadioGroup>
+    <RadioGroup
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <RadioButton
+
+               android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:text="更多条件选车"
+                android:textSize="19sp"
+                android:textColor="#3c82f1"
+                android:gravity="center"
+                android:background="@drawable/select_morechosecar"/>
+
+        </LinearLayout>
+
+    </RadioGroup>
+    <LinearLayout
+        android:layout_marginTop="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#e9e9e9"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

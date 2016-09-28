@@ -12,10 +12,10 @@
 
     </com.youth.banner.Banner>
 
-<ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/findtop_findfragment_img_Ad"/>
+<!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/findtop_findfragment_img_Ad"/>-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -82,6 +82,10 @@
         >
 
     </android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/findtop_findfragment_img_Ad"/>
 
 
 

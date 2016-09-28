@@ -2,7 +2,9 @@ package lanou.carhome.forumfragment.hotforum;
 
 import android.content.Intent;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 import lanou.carhome.R;
@@ -40,6 +42,17 @@ public class HotForumDetailActivity  extends BaseActivity implements View.OnClic
         String str =  intent.getStringExtra("热帖详情");
 
         webView.loadUrl(str);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+
 
 
     }

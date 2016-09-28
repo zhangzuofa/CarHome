@@ -9,12 +9,15 @@ import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseActivity;
 import lanou.carhome.find.FindFragment;
 import lanou.carhome.findcarfragment.FIndCarFragment;
+import lanou.carhome.findcarfragment.newcarfragment.NewCarFragment;
 import lanou.carhome.forumfragment.ForumFragment;
 import lanou.carhome.personnal.PersonFragment;
 import lanou.carhome.recommedfragment.RecommedFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
+
+    NewCarFragment   newCarFragment = new NewCarFragment();
 
     @Override
     protected int setLayout() {
@@ -34,6 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         radioBtnFindCar.setOnClickListener(this);
         radioBtnFind.setOnClickListener(this);
         radioBtnPerson.setOnClickListener(this);
+
 
     }
 
@@ -78,4 +82,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     }
+
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//
+////        if(newCarFragment instanceof IOnFocusListenable) {
+////            ((IOnFocusListenable) newCarFragment).onWindowFocusChanged(hasFocus);
+////        }
+//    }
 }

@@ -189,13 +189,15 @@ public class FindFragment extends BaseFragment {
         GridLayoutManager manager = new GridLayoutManager(getContext(),2);
         rcForme.setLayoutManager(manager);
     // 轮播图
+
         for (int i = 0; i < response.getResult().getCardlist().get(0).getData().size(); i++) {
             listBanner.add(response.getResult().getCardlist().get(0).getData().get(i).getImageurl());
 
         }
         banner.setImages(listBanner);
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(1).getData().get(0).getImageurl()).into(img_ad);
+        Picasso.with(getContext()).load(response.getResult().getCardlist().get(4).getData().get(0).getImageurl()).into(img_ad);
         // 业务
+
         BusinessAdapter businessAdapter = new BusinessAdapter(getContext());
         businessAdapter.setBean(response);
         yewuRcyclerView.setAdapter(businessAdapter);
@@ -237,9 +239,9 @@ public class FindFragment extends BaseFragment {
         }
         //更多活动
 
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(6).getData().get(0).getImageurl()).into(imgOneMoreSports);
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(6).getData().get(1).getImageurl()).into(imgTwoMoreSports);
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(6).getData().get(2).getImageurl()).into(imgThreeMoreSports);
+        Picasso.with(getContext()).load(response.getResult().getCardlist().get(5).getData().get(0).getImageurl()).into(imgOneMoreSports);
+        Picasso.with(getContext()).load(response.getResult().getCardlist().get(5).getData().get(1).getImageurl()).into(imgTwoMoreSports);
+        Picasso.with(getContext()).load(response.getResult().getCardlist().get(5).getData().get(2).getImageurl()).into(imgThreeMoreSports);
 
 
 
