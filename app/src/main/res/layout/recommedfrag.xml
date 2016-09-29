@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,18 +10,41 @@
         android:orientation="horizontal"
         >
        <ImageView
+           android:layout_margin="6dp"
            android:layout_width="60dp"
            android:layout_height="match_parent"
           android:src="@mipmap/yinpin"
            android:layout_gravity="center"/>
-        <ImageView
+        <LinearLayout
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@mipmap/sou"
+            android:layout_height="30dp"
+            android:background="#e3e3e9"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="7dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
 
+                >
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@mipmap/ahlib_nav_icon_search_p"/>
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜索关键字"
+                    android:textSize="13sp"
+                    android:textColor="#a79f9f"/>
 
-            android:layout_marginTop="5dp"
-            />
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/Refresh_headline"

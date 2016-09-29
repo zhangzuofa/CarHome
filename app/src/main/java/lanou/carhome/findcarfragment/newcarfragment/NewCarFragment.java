@@ -1,7 +1,9 @@
 package lanou.carhome.findcarfragment.newcarfragment;
 
 import android.graphics.Color;
-import android.util.Log;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +24,10 @@ import java.util.TreeSet;
 
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseFragment;
+import lanou.carhome.findcarfragment.newcarfragment.hotadapter.HotBrandAdapter;
+import lanou.carhome.findcarfragment.newcarfragment.hotadapter.HotBrandBean;
+import lanou.carhome.findcarfragment.newcarfragment.hotadapter.MainCarAdapter;
+import lanou.carhome.findcarfragment.newcarfragment.hotadapter.MainCarBean;
 import lanou.carhome.volley.GsonRequest;
 import lanou.carhome.volley.URLValues;
 import lanou.carhome.volley.VollaySingleton;
@@ -37,13 +43,17 @@ public class NewCarFragment extends BaseFragment{
     private ListView listView;
     private TextView tv_show;
     private ListViewAdapter adapter;
-    private String[] indexStr = { "选","热","主","史", "A", "B", "C", "D", "E", "F", "G", "H",
-            "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
-            "V", "W", "X", "Y", "Z" };
+    private String[] indexStr = { "选","热","主","史", "A", "B", "C", "D", "F", "G", "H",
+             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+            "W", "X", "Y", "Z" };
     private List<Person> persons = null;
     private List<Person> newPersons = new ArrayList<Person>();
     private int height;// 字体高度
     private boolean flag = false;
+    private RecyclerView hotBrandRecyclerV;
+    private RecyclerView mainCarRecyclerV;
+    private ArrayList<Person> carPic;
+
     @Override
     protected int setLayout() {
         return R.layout.newcar_fragment;
@@ -58,15 +68,26 @@ public class NewCarFragment extends BaseFragment{
      //   tv_show = (TextView) findViewById(R.id.tv);
         tv_show = bindView(R.id.tv);
         tv_show.setVisibility(View.GONE);
+        View viewTop = LayoutInflater.from(getContext()).inflate(R.layout.newcar_topview,null);
+        listView.addHeaderView(viewTop);
+        hotBrandRecyclerV = bindView(R.id.car_top_hotbrand_rv,viewTop);
+        mainCarRecyclerV = bindView(R.id.findnewcar_topview_main_car,viewTop);
+
         persons = new ArrayList<Person>();
+        carPic = new ArrayList<>();
+        requestInternetCarBrandSort();
 
+    }
 
+    private void requestInternetCarBrandSort() {
         GsonRequest<NewCarBean> gsonRequest = new GsonRequest<NewCarBean>(URLValues.NEWCAR_BRAND_URL, NewCarBean.class, new Response.Listener<NewCarBean>() {
 
+            private Person pCar;
             private Person p1;
 
             @Override
             public void onResponse(NewCarBean response) {
+
 
                 for (int i = 0; i <response.getResult().getBrandlist().size() ; i++) {
 
@@ -74,13 +95,14 @@ public class NewCarFragment extends BaseFragment{
                     for (int j = 0; j < response.getResult().getBrandlist().get(i).getList().size(); j++) {
                         p1 = new Person(response.getResult().getBrandlist().get(i).getList().get(j).getName());
 
+//                        pCar = new Person(response.getResult().getBrandlist().get(i).getList().get(j).getImgurl());
+                        p1.setPic(response.getResult().getBrandlist().get(i).getList().get(j).getImgurl());
                         persons.add(p1);
 
                     }
                 }
                 String[] allNames = sortIndex(persons);
 
-                //  Log.d("MainActivity", "allNames:" + allNames);
                 sortList(allNames);
 
                 selector = new HashMap<String, Integer>();
@@ -92,7 +114,10 @@ public class NewCarFragment extends BaseFragment{
                     }
 
                 }
+
                 adapter = new ListViewAdapter(getContext(), newPersons);
+
+//                adapter.setCars(carPic);
                 //   Log.d("MainActivity", "newPersons:" + newPersons);
                 listView.setAdapter(adapter);
 
@@ -109,10 +134,8 @@ public class NewCarFragment extends BaseFragment{
 
         VollaySingleton.getInstance().addRequest(gsonRequest);
 
-
-
-
     }
+
 
     private void sortList(String[] allNames) {
         for (int i = 0; i < allNames.length; i++) {
@@ -121,12 +144,14 @@ public class NewCarFragment extends BaseFragment{
                     if (allNames[i].equals(persons.get(j).getPinYinName())) {
                         Person p = new Person(persons.get(j).getName(), persons
                                 .get(j).getPinYinName());
+                        p.setPic(persons.get(j).getPic());
                         newPersons.add(p);
+
                     }
                 }
             } else {
                 newPersons.add(new Person(allNames[i]));
-                Log.d("MainActivity", "newPersons:" + newPersons);
+
             }
         }
     }
@@ -202,7 +227,7 @@ public class NewCarFragment extends BaseFragment{
                     switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             layoutIndex.setBackgroundColor(Color
-                                    .parseColor("#606060"));
+                                    .parseColor("#00ffffff"));
                             break;
 
                         case MotionEvent.ACTION_MOVE:
@@ -224,8 +249,8 @@ public class NewCarFragment extends BaseFragment{
 
     @Override
     protected void initDate() {
-        View viewTop = LayoutInflater.from(getContext()).inflate(R.layout.newcar_topview,null);
-        listView.addHeaderView(viewTop);
+
+
         ViewTreeObserver observer = layoutIndex.getViewTreeObserver();
 
 
@@ -240,9 +265,56 @@ public class NewCarFragment extends BaseFragment{
             }
         });
 
+        requestInternetHotBran();
+        requestInterntMainCar();
+
 
     }
 
+    private void requestInterntMainCar() {
+        GsonRequest<MainCarBean> gsonRequest = new GsonRequest<MainCarBean>(URLValues.MAINCAR_URL, MainCarBean.class, new Response.Listener<MainCarBean>() {
+            @Override
+            public void onResponse(MainCarBean response) {
+                MainCarAdapter mainCarAdapter = new MainCarAdapter(getContext());
+                mainCarAdapter.setBean(response);
+                mainCarRecyclerV.setAdapter(mainCarAdapter);
+                LinearLayoutManager mainCarManager = new LinearLayoutManager(getContext());
+                mainCarRecyclerV.setLayoutManager(mainCarManager);
+                mainCarManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        VollaySingleton.getInstance().addRequest(gsonRequest);
+    }
+
+    private void requestInternetHotBran() {
+        GsonRequest<HotBrandBean> gsonRequest = new GsonRequest<HotBrandBean>(URLValues.HOTBRAND_URL, HotBrandBean.class, new Response.Listener<HotBrandBean>() {
+            @Override
+            public void onResponse(HotBrandBean response) {
+                HotBrandAdapter hotBrandAdapter = new HotBrandAdapter(getContext());
+
+                hotBrandAdapter.setBean(response);
+                hotBrandRecyclerV.setAdapter(hotBrandAdapter);
+                GridLayoutManager hotBrandManager = new GridLayoutManager(getContext(),5);
+                hotBrandRecyclerV.setLayoutManager(hotBrandManager);
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        VollaySingleton.getInstance().addRequest(gsonRequest);
+
+    }
 
 
 }

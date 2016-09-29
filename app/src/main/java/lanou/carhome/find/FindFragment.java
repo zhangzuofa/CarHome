@@ -3,6 +3,7 @@ package lanou.carhome.find;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -195,7 +196,8 @@ public class FindFragment extends BaseFragment {
 
         }
         banner.setImages(listBanner);
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(4).getData().get(0).getImageurl()).into(img_ad);
+        //广告判断 有用
+     //   Picasso.with(getContext()).load(response.getResult().getCardlist().get(4).getData().get(0).getImageurl()).into(img_ad);
         // 业务
 
         BusinessAdapter businessAdapter = new BusinessAdapter(getContext());
@@ -204,25 +206,47 @@ public class FindFragment extends BaseFragment {
         GridLayoutManager manegerBusiness = new GridLayoutManager(getContext(),5);
         yewuRcyclerView.setLayoutManager(manegerBusiness);
         // 发现头条
-        if (response.getResult().getCardlist().size() == 11){
-            Picasso.with(getContext()).load(response.getResult().getCardlist().get(3).getImageurl()).into(imgFindTop);
+        for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("头条"));
+            Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getImageurl()).into(imgFindTop);
         }
 
 
-        // 服务
-        ServeAdapter serveAdapter = new ServeAdapter(getContext());
-        serveAdapter.setBean(response);
-        serveRecycleView.setAdapter(serveAdapter);
-        GridLayoutManager serveManager = new GridLayoutManager(getContext(),2);
-        serveRecycleView.setLayoutManager(serveManager);
-        //限时抢购
-        TimeLimitAdapter timeLimitAdapter = new TimeLimitAdapter(getContext());
-        timeLimitAdapter.setBean(response);
-        timeLimitRecycle.setAdapter(timeLimitAdapter);
-        LinearLayoutManager timeLimitManager = new LinearLayoutManager(getContext());
-        timeLimitManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
-        timeLimitRecycle.setLayoutManager(timeLimitManager);
+
+
+        // 服务
+        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("田字小号专区")){
+                ServeAdapter serveAdapter = new ServeAdapter(getContext());
+                serveAdapter.setNum(i);
+                serveAdapter.setBean(response);
+                serveRecycleView.setAdapter(serveAdapter);
+                GridLayoutManager serveManager = new GridLayoutManager(getContext(),2);
+                serveRecycleView.setLayoutManager(serveManager);
+
+            }
+
+        }
+
+        //限时抢购
+        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("限时抢购")){
+
+
+                TimeLimitAdapter timeLimitAdapter = new TimeLimitAdapter(getContext());
+                timeLimitAdapter.setBean(response);
+                timeLimitAdapter.setNum(i);
+                Log.d("尼玛", "i:" + i);
+                timeLimitRecycle.setAdapter(timeLimitAdapter);
+                LinearLayoutManager timeLimitManager = new LinearLayoutManager(getContext());
+                timeLimitManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+                timeLimitRecycle.setLayoutManager(timeLimitManager);
+            }
+
+        }
+
         //猜我喜欢
         MyLoveAdapter myLoveAdapter = new MyLoveAdapter(getContext());
         myLoveAdapter.setBean(response);
@@ -230,18 +254,25 @@ public class FindFragment extends BaseFragment {
         GridLayoutManager myLoveManager = new GridLayoutManager(getContext(),2);
         recycleViewMylove.setLayoutManager(myLoveManager);
         //贷款
-        if (response.getResult().getCardlist().size() == 11){
-            Picasso.with(getContext()).load(response.getResult().getCardlist().get(7).getData().get(0).getImageurl()).into(imgDaiKuan);
-        }else {
-            Picasso.with(getContext()).load(response.getResult().getCardlist().get(6).getData().get(0).getImageurl()).into(imgDaiKuan);
+        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("单帧小号横栏")){
 
+                Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl()).into(imgDaiKuan);
 
+            }
         }
-        //更多活动
 
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(5).getData().get(0).getImageurl()).into(imgOneMoreSports);
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(5).getData().get(1).getImageurl()).into(imgTwoMoreSports);
-        Picasso.with(getContext()).load(response.getResult().getCardlist().get(5).getData().get(2).getImageurl()).into(imgThreeMoreSports);
+
+
+        //更多活动
+        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("活动专区")){
+                Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl()).into(imgOneMoreSports);
+                Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(1).getImageurl()).into(imgTwoMoreSports);
+                Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(2).getImageurl()).into(imgThreeMoreSports);
+
+            }
+        }
 
 
 

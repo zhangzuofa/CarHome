@@ -21,6 +21,7 @@
         <activity android:name=".forumfragment.threetyeight.SelectedThreeEightActivity"/>
         <activity android:name=".forumfragment.hotforum.HotForumDetailActivity"/>
         <activity android:name=".forumfragment.formed.ForumedWebVIewActivity"/>
+        <activity android:name=".forumfragment.threetyeight.ThirtyNineWebViewActivity"/>
     </application>
 
 </manifest>

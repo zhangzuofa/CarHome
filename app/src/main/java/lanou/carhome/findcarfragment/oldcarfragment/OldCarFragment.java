@@ -42,6 +42,11 @@ public class OldCarFragment extends BaseFragment {
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
+      //  settings.setDomStorageEnabled(true);
+//        webView.getSettings().setBuiltInZoomControls(false);
+//        webView.getSettings().setJavaScriptEnabled(true);
+//      //  webView.getSettings().setRenderPriority(RenderPriority.HIGH);
+//        webView.getSettings().setBlockNetworkImage(true);
 
 
     }

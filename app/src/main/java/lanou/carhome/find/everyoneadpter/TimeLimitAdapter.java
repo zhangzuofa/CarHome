@@ -20,6 +20,10 @@ public class TimeLimitAdapter extends RecyclerView.Adapter<TimeLimitAdapter.View
     FindBean bean;
     private int num;
 
+    public void setNum(int num) {
+        this.num = num;
+    }
+
     public void setBean(FindBean bean) {
         this.bean = bean;
     }
@@ -37,16 +41,16 @@ public class TimeLimitAdapter extends RecyclerView.Adapter<TimeLimitAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(mContext).load(bean.getResult().getCardlist().get(num - 6).getData().get(position).getImageurl()).into(holder.img);
+        Picasso.with(mContext).load(bean.getResult().getCardlist().get(num).getData().get(position).getImageurl()).into(holder.img);
 
 
     }
 
     @Override
     public int getItemCount() {
-        num = bean.getResult().getCardlist().size();
 
-        return bean == null ? 0: bean.getResult().getCardlist().get(num-6).getData().size();
+
+        return bean == null ? 0: bean.getResult().getCardlist().get(num).getData().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

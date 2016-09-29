@@ -3,16 +3,22 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingBottom="5dp"
     android:paddingLeft="20dp"
     android:paddingTop="5dp" >
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_suoyin_img"/>
     <TextView
+        android:layout_marginLeft="15dp"
         android:id="@+id/itemTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

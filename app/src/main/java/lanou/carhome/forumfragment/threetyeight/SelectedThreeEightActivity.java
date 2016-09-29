@@ -3,6 +3,7 @@ package lanou.carhome.forumfragment.threetyeight;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.android.volley.Response;
@@ -105,6 +106,8 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
                         ThreeAdapter adapter = new ThreeAdapter(SelectedThreeEightActivity.this);
                         adapter.setBean(response);
                         lv.setAdapter(adapter);
+                        initOnClickLissenner(response);
+
 
 
 
@@ -117,6 +120,28 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         });
         VollaySingleton.getInstance().addRequest(gsonRequesty);
     }
+
+    private void initOnClickLissenner(final ThreeEightBean response) {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SelectedThreeEightActivity.this,ThirtyNineWebViewActivity.class);
+                String str1 ="http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t";
+                String str2 = "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw360.json";
+                int num = response.getResult().getList().get(position).getTopicid();
+                String url  = str1 + num +str2;
+                intent.putExtra("39贴详情",url);
+
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+    }
+
 
     @Override
     public void onClick(View v) {

@@ -7,32 +7,116 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+  <LinearLayout
+      android:layout_marginTop="10dp"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@mipmap/one"
+          android:layout_gravity="center"/>
+      <TextView
+          android:layout_marginTop="4dp"
+          android:layout_marginBottom="5dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="优创+"
+          android:layout_gravity="center"/>
 
-<ImageView
-    android:layout_width="0dp"
-    android:layout_height="50dp"
-    android:layout_weight="1"
-    android:background="@mipmap/youchuang"/>
-        <ImageView
+  </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
-            android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@mipmap/shuoke"/>
-        <ImageView
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/three"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="说客"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
-            android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@mipmap/shipin"/>
-        <ImageView
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/shipin3"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
-            android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@mipmap/kuaibao"/>
-        <ImageView
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/one"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="快报"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="0dp"
-            android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@mipmap/gengduo"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/kuaibao311"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+
+
+
+
 
     </LinearLayout>
 

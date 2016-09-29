@@ -20,6 +20,10 @@ public class ServeAdapter extends RecyclerView.Adapter<ServeAdapter.ViewHolder> 
     FindBean bean;
     private int num;
 
+    public void setNum(int num) {
+        this.num = num;
+    }
+
     public void setBean(FindBean bean) {
         this.bean = bean;
     }
@@ -38,11 +42,8 @@ public class ServeAdapter extends RecyclerView.Adapter<ServeAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if (num == 11){
-            Picasso.with(mContext).load(bean.getResult().getCardlist().get(4).getData().get(position).getImageurl()).into(holder.img);
-        } else {
-            Picasso.with(mContext).load(bean.getResult().getCardlist().get(3).getData().get(position).getImageurl()).into(holder.img);
-        }
+        Picasso.with(mContext).load(bean.getResult().getCardlist().get(num).getData().get(position).getImageurl()).into(holder.img);
+
 
 
 
@@ -51,13 +52,13 @@ public class ServeAdapter extends RecyclerView.Adapter<ServeAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        num = bean.getResult().getCardlist().size();
 
-        if (num == 11){
-            return bean == null? 0:bean.getResult().getCardlist().get(4).getData().size();
-        }else {
-            return bean == null? 0:bean.getResult().getCardlist().get(3).getData().size();
-        }
+
+
+            return bean == null? 0:bean.getResult().getCardlist().get(num).getData().size();
+
+
+
 
 
     }

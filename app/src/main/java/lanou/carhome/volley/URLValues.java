@@ -55,4 +55,20 @@ public final class URLValues {
     // 车牌
     public static final  String NEWCAR_BRAND_URL ="http://223.99.255.20/cars.app.autohome.com.cn/cars_v5.7.0/cars/brands-pm2-ts635966571635589297.json";
     public static final  String OLDCAR_DL_URL = "http://m.che168.com/dalian/list/?sourcename=mainapp&safe=0&carsafe=1&pvareaid=102254";
+    //http://183.232.160.141/adnewnc.app.autohome.com.cn/advert_v7.0.0/ad/infoad.ashx?pageid=cee6fa23-52bc-4547-9ae9-ab0bc02d36d8&cityid=0&mac=74%3Aac%3A5f%3A6d%3A3c%3A93&networkid=0&appid=2&idfa=0&devicebrand=360&deviceid=860954030358581&lng=121.550946&devicemodel=1501_M02&platform=2&adtype=1&gps_city=210200&version=7.0.7&isretry=0&provinceid=210000&lat=38.889732   主打车
+    //http://183.232.160.141/cars.app.autohome.com.cn/dealer_v6.0.0/dealer/hotbrands-pm2.json      第三页热门品牌
+    public static  final  String HOTBRAND_URL = "http://183.232.160.141/cars.app.autohome.com.cn/dealer_v6.0.0/dealer/hotbrands-pm2.json";
+
+    public  static final  String MAINCAR_URL ="http://183.232.160.141/adnewnc.app.autohome.com.cn/advert_v7.0.0/ad/infoad.ashx?pageid=cee6fa23-52bc-4547-9ae9-ab0bc02d36d8&cityid=0&mac=74%3Aac%3A5f%3A6d%3A3c%3A93&networkid=0&appid=2&idfa=0&devicebrand=360&deviceid=860954030358581&lng=121.550946&devicemodel=1501_M02&platform=2&adtype=1&gps_city=210200&version=7.0.7&isretry=0&provinceid=210000&lat=38.889732";
+    // http://comm.app.autohome.com.cn/news/province-pm2-ts0.json  城市
+    //http://cars.app.autohome.com.cn/dealer_v6.0.0/Dealer/hotsaleseries-pm2-st1.json 热销suv
+    //http://cars.app.autohome.com.cn/dealer_v6.0.0/Dealer/hotsaleseries-pm2-st0.json 热销轿车
+    //http://cars.app.autohome.com.cn/dealer_v6.0.0/Dealer/hotsaleseries-pm2-st2.json 热销spv
+    //http://cars.app.autohome.com.cn/cars_v7.1.0/cars/seriesprice-pm2-b1-t16.json 大众
+    //http://cars.app.autohome.com.cn/cars_v7.1.0/cars/seriesprice-pm2-b14-t16.json 本田
+    //http://cars.app.autohome.com.cn/cars_v7.1.0/cars/seriesprice-pm2-b35-t16.json 阿斯顿马丁
+    //http://cars.app.autohome.com.cn/cars_v7.1.0/cars/seriesprice-pm2-b3-t16.json 丰田
+    //http://cars.app.autohome.com.cn/cars_v7.1.0/cars/seriesprice-pm2-b12-t16.json 现代
+   // 媳妇当车模
+   // http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t56091204-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw360.json
 }

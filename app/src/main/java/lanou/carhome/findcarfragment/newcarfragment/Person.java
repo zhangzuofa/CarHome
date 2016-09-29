@@ -7,11 +7,22 @@ package lanou.carhome.findcarfragment.newcarfragment;
     public class Person {
         private String name;
         private String pinYinName;
+        private String pic;
 
-        public Person(String name) {
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public Person(String name) {
             super();
             this.name = name;
         }
+
+
 
         public Person(String name, String pinYinName) {
             super();
