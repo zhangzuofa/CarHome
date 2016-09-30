@@ -5,7 +5,7 @@
     <application
         android:name=".main.MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_tupiao"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -22,6 +22,8 @@
         <activity android:name=".forumfragment.hotforum.HotForumDetailActivity"/>
         <activity android:name=".forumfragment.formed.ForumedWebVIewActivity"/>
         <activity android:name=".forumfragment.threetyeight.ThirtyNineWebViewActivity"/>
+        <activity android:name=".recommedfragment.SearchKeyActivity"/>
+        <activity android:name=".personnal.mycollection.MyLoveActivity"/>
     </application>
 
 </manifest>

@@ -71,4 +71,7 @@ public final class URLValues {
     //http://cars.app.autohome.com.cn/cars_v7.1.0/cars/seriesprice-pm2-b12-t16.json 现代
    // 媳妇当车模
    // http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t56091204-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw360.json
+    //http://y.autohome.com.cn/ 游记
+    // 优创
+    //http://news.app.autohome.com.cn/newspf_v7.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=7.1.5&au=&type=3&lastid=&lastuid=27774674&size=30
 }

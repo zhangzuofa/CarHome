@@ -195,11 +195,12 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
                 Intent intent = new Intent(getActivity(), HotActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.Forumed_topView_img_jingxuan:
               Intent intent1 = new Intent(getActivity(),SelectedRecommedAcitivity.class);
                 startActivity(intent1);
-
+                getActivity().overridePendingTransition(R.anim.anim_main_to_up,R.anim.anim_main_toleft);
 
                 break;
             case R.id.btn_Wife:
@@ -207,46 +208,51 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
                 intentWife.putExtra("哈哈",0);
                 startActivity(intentWife);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.btn_Beauty:
                 Intent intentBeauty = new Intent(getContext(),SelectedThreeEightActivity.class);
 
                 intentBeauty.putExtra("哈哈",1);
                 startActivity(intentBeauty);
-
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.btn_Top:
                 Intent intentTop  = new Intent(getContext(),SelectedThreeEightActivity.class);
                 intentTop.putExtra("哈哈",6);
                 startActivity(intentTop);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.btn_MO:
                 Intent intentMo  = new Intent(getContext(),SelectedThreeEightActivity.class);
                 intentMo.putExtra("哈哈",22);
                 startActivity(intentMo);
-
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.btn_chose:
                 Intent intentChose  = new Intent(getContext(),SelectedThreeEightActivity.class);
                 intentChose.putExtra("哈哈",4);
                 startActivity(intentChose);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.btn_SisterCar:
                 Intent intentSisterCar  = new Intent(getContext(),SelectedThreeEightActivity.class);
                 intentSisterCar.putExtra("哈哈",13);
                 startActivity(intentSisterCar);
-
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.btn_red:
                 Intent intentRed  = new Intent(getContext(),SelectedThreeEightActivity.class);
                 intentRed.putExtra("哈哈",2);
                 startActivity(intentRed);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
 
                 break;
             case R.id.btn_chageCar:
                 Intent intentChageCar  = new Intent(getContext(),SelectedThreeEightActivity.class);
                 intentChageCar.putExtra("哈哈",17);
                 startActivity(intentChageCar);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
 
 
