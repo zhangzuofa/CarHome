@@ -2,7 +2,6 @@ package lanou.carhome.recommedfragment;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,8 +14,6 @@ import java.util.ArrayList;
 
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseFragment;
-import lanou.carhome.recommedfragment.smallrecommedfrag.SmallRecommedFrag;
-import lanou.carhome.recommedfragment.usecar.UseCarFrag;
 
 /**
  * Created by dllo on 16/9/19.
@@ -58,7 +55,7 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
         search_img.setOnClickListener(this);
         tb = bindView(R.id.allrecommed_tb);
         vp = bindView(R.id.allrecommed_vp);
-        ArrayList<Fragment>fragments = new ArrayList<>();
+
         ArrayList<String> title = new ArrayList<>();
 
         title.add("推荐");
@@ -74,15 +71,21 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
         title.add("技术");
         title.add("文化");
         title.add("改装");
-
-        fragments.add(new SmallRecommedFrag());
-        for (int i = 0; i < 11; i++) {
-
-            fragments.add(new UseCarFrag());
-
-        }
+//        ArrayList<Fragment>fragments = new ArrayList<>();
+//        fragments.add(new SmallRecommedFrag());
+//        fragments.add(new UnihubFrafment());
+//        fragments.add(new SayFragment());
+//        fragments.add(new VideoFragment());
+//        fragments.add(new QuickNewsFragment());
+//        fragments.add(new MarketFragement());
+//
+//        for (int i = 0; i < 7; i++) {
+//
+//            fragments.add(new UseCarFrag());
+//
+//        }
         AllRecommedAdapter allAdapter = new AllRecommedAdapter(getChildFragmentManager());
-        allAdapter.setFragments(fragments);
+     //   allAdapter.setFragments(fragments);
         allAdapter.setTitle(title);
         vp.setAdapter(allAdapter);
         tb.setupWithViewPager(vp);

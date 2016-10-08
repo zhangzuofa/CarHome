@@ -5,8 +5,34 @@ package lanou.carhome.volley;
  */
 public final class URLValues {
 
-
+//  第一页
+    //推荐
     public final static String URL_NEW ="http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt0-p1-s30-l0.json";
+    //优创
+    public final static String URL_YC = "http://news.app.autohome.com.cn/news_v6.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=6.1.0&au=&type=3&lastid=&lastuid=0&size=30";
+    //说客
+    public final static String URL_SAY= "http://app.api.autohome.com.cn/autov4.8.8/news/shuokelist-pm1-s30-lastid0.json";
+    //视频
+    public final static String URL_VIEDIO = "http://app.api.autohome.com.cn/autov4.8.8/news/videolist-pm1-vt0-s30-lastid0.json";
+    //快报
+    public final static String URL_QUICK = "http://app.api.autohome.com.cn/autov4.8.8/news/fastnewslist-pm1-b0-l0-s20-lastid0.json";
+    //航情
+    public final static String URL_MARKET = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c110100-nt2-p1-s30-l0.json";
+    //新闻
+    public final static String URL_NEWS = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt1-p1-s30-l0.json";
+    //评测
+    public final static String URL_TESTCAR = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt3-p1-s30-l0.json";
+    //导购
+    public final static String URL_SHOP = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt60-p1-s30-l0.json";
+    //用车
+    public final static String URL_USECAR = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt82-p1-s30-l0.json";
+    //技术
+    public final static String URL_TECHNOLOGY = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt102-p1-s30-l0.json";
+    //文化
+    public final static String URL_CULTURE = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt97-p1-s30-l0.json";
+    //改装
+    public final static String URL_CHANGE = "http://app.api.autohome.com.cn/autov4.8.8/news/newslist-pm1-c0-nt107-p1-s30-l0.json";
+
     public final static String FORUMED_URL="http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=0&pageindex=1&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=1&netstate=0&gps=38.889726%2C121.550943";
     public final static String Hot_URL = "http://183.232.160.141/club.app.autohome.com.cn/club_v7.0.5/club/shotfoumlist-pm2-p1-s50.json";
 

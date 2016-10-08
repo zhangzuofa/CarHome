@@ -128,7 +128,7 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
                 Intent intent = new Intent(SelectedThreeEightActivity.this,ThirtyNineWebViewActivity.class);
                 String str1 ="http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t";
                 String str2 = "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw360.json";
-                int num = response.getResult().getList().get(position).getTopicid();
+                int num = response.getResult().getList().get(position-1).getTopicid();
                 String url  = str1 + num +str2;
                 intent.putExtra("39贴详情",url);
 

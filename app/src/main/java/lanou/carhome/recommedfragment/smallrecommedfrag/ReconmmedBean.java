@@ -1,4 +1,4 @@
-package lanou.carhome.recommedfragment;
+package lanou.carhome.recommedfragment.smallrecommedfrag;
 
 import java.util.List;
 

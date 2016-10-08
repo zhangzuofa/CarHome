@@ -1,4 +1,4 @@
-package lanou.carhome.recommedfragment;
+package lanou.carhome.recommedfragment.smallrecommedfrag;
 
 import android.content.Context;
 import android.view.LayoutInflater;

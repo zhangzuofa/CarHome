@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:id="@+id/item_unihub_head_imag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_tupiao"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/item_unihub_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="字幕君"
+            />
+        <TextView
+            android:id="@+id/item_unihub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标sadfsadfasdfsdfdsf题"
+            android:textSize="21sp"/>
+        <ImageView
+            android:id="@+id/item_unihub_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/shipin3"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/item_unihub_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间"
+                />
+            <TextView
+                android:layout_marginRight="10dp"
+                android:id="@+id/item_unihub_zan_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点赞"
+                android:layout_alignParentRight="true"
+                />
+            <TextView
+                android:id="@+id/item_unihub_pinglun_tv"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评论"
+                android:layout_toLeftOf="@+id/item_unihub_zan_tv"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

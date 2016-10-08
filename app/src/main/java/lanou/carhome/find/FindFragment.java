@@ -15,6 +15,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
 
 import java.util.ArrayList;
 
@@ -195,7 +196,10 @@ public class FindFragment extends BaseFragment {
             listBanner.add(response.getResult().getCardlist().get(0).getData().get(i).getImageurl());
 
         }
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        banner.setIndicatorGravity(BannerConfig.RIGHT);
         banner.setImages(listBanner);
+
         //广告判断 有用
      //   Picasso.with(getContext()).load(response.getResult().getCardlist().get(4).getData().get(0).getImageurl()).into(img_ad);
         // 业务
