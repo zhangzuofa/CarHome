@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -27,6 +28,7 @@ import lanou.carhome.find.everyoneadpter.MyLoveAdapter;
 import lanou.carhome.find.everyoneadpter.ServeAdapter;
 import lanou.carhome.find.everyoneadpter.TimeLimitAdapter;
 import lanou.carhome.main.DividerItemDecoration;
+import lanou.carhome.recommedfragment.smallrecommedfrag.OnClickLisenerRecycleView;
 import lanou.carhome.volley.GsonRequest;
 import lanou.carhome.volley.URLValues;
 import lanou.carhome.volley.VollaySingleton;
@@ -209,6 +211,8 @@ public class FindFragment extends BaseFragment {
         yewuRcyclerView.setAdapter(businessAdapter);
         GridLayoutManager manegerBusiness = new GridLayoutManager(getContext(),5);
         yewuRcyclerView.setLayoutManager(manegerBusiness);
+        initOnClickBusiness(businessAdapter,response);
+
         // 发现头条
         for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
             if (response.getResult().getCardlist().get(i).getDescription().equals("头条"));
@@ -285,6 +289,23 @@ public class FindFragment extends BaseFragment {
 
     }
 
+    private void initOnClickBusiness(BusinessAdapter businessAdapter, FindBean response) {
+        businessAdapter.setOnClickLisenerRecycleView(new OnClickLisenerRecycleView() {
+            @Override
+            public void onClick(int position, RecyclerView.ViewHolder holder) {
+             switch (position){
+                 case 0:
+                     Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                     break;
+                 case 1:
+                     Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                     break;
+
+             }
+
+            }
+        });
+    }
 
 
 }

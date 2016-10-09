@@ -7,6 +7,7 @@
     <com.lhh.ptrrv.library.PullToRefreshRecyclerView
         android:id="@+id/small_recommed_frag_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        />
 
 </RelativeLayout>

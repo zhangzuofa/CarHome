@@ -35,12 +35,12 @@ public class UnihubAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return bean.getResult().getNewslist().get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override

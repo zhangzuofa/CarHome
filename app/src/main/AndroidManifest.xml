@@ -24,6 +24,9 @@
         <activity android:name=".forumfragment.threetyeight.ThirtyNineWebViewActivity"/>
         <activity android:name=".recommedfragment.SearchKeyActivity"/>
         <activity android:name=".personnal.mycollection.MyLoveActivity"/>
+        <activity android:name=".recommedfragment.market.FuYongActivity"/>
+        <activity android:name=".recommedfragment.MoreActivity"/>
+        <activity android:name=".recommedfragment.smallrecommedfrag.RecommedDetailActivity"/>
     </application>
 
 </manifest>

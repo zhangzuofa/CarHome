@@ -60,6 +60,7 @@ public class AllRecommedAdapter  extends FragmentPagerAdapter{
         return fragments1[position];
 
 
+
       //  return fragments.get(position);
     //  return MarketFragement.newInstance(url[position]);
     }

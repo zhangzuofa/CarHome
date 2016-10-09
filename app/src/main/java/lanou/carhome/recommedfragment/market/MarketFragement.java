@@ -1,6 +1,9 @@
 package lanou.carhome.recommedfragment.market;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.Response;
@@ -49,6 +52,24 @@ public class MarketFragement extends BaseFragment {
         initRequestInternet();
         initPullToRefrsh();
 
+
+    }
+
+    private void innitOnClick(final MarketBean response) {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String str = "http://cont.app.autohome.com.cn/autov4.2.5/content/News/newscontent-a2-pm1-v4.2.5-n";
+                String str1 ="-lz0-sp0-nt0-sa1-p0-c1-fs0-cw320.html";
+                int str2 = response.getResult().getNewslist().get(position-1).getId();
+                String url = str+ str2 + str1;
+                Intent inent = new Intent(getContext(),FuYongActivity.class);
+                inent.putExtra("复用网址",url);
+                startActivity(inent);
+
+            }
+        });
     }
 
     private void initPullToRefrsh() {
@@ -78,6 +99,7 @@ public class MarketFragement extends BaseFragment {
                   MarketAdapter maeketAdapter = new MarketAdapter(getContext());
                         maeketAdapter.setBean(response);
                         listView.setAdapter(maeketAdapter);
+                        innitOnClick(response);
 
                     }
                 }, new Response.ErrorListener() {

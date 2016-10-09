@@ -1,7 +1,9 @@
 package lanou.carhome.recommedfragment.smallrecommedfrag;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -82,7 +84,9 @@ public class SmallRecommedFrag extends BaseFragment {
                         banner.setIndicatorGravity(BannerConfig.RIGHT);
                         banner.setImages(list);
                         recyclerView.setOnRefreshComplete();
+                        innitOnClickLisenner(response,smallRecommedAdapter);
                         Toast.makeText(getContext(), "刷新完成", Toast.LENGTH_SHORT).show();
+
 
                     }
                 }, new Response.ErrorListener() {
@@ -118,6 +122,7 @@ public class SmallRecommedFrag extends BaseFragment {
                 banner.setIndicatorGravity(BannerConfig.RIGHT);
                 banner.setImages(list);
                 recyclerView.addHeaderView(view);
+                innitOnClickLisenner(response,smallRecommedAdapter);
 
             }
         }, new Response.ErrorListener() {
@@ -128,4 +133,21 @@ public class SmallRecommedFrag extends BaseFragment {
         });
         VollaySingleton.getInstance().addRequest(gsonRequest);
     }
+
+    private void innitOnClickLisenner(final ReconmmedBean response, SmallRecommedAdapter smallRecommedAdapter) {
+
+        smallRecommedAdapter.setOnClickLisenerRecycleView(new OnClickLisenerRecycleView() {
+            @Override
+            public void onClick(int position, RecyclerView.ViewHolder holder) {
+                Intent intent = new Intent(getContext(),RecommedDetailActivity.class);
+                int num = response.getResult().getNewslist().get(position).getId();
+                String str ="http://cont.app.autohome.com.cn/autov4.2.5/content/News/newscontent-a2-pm1-v4.2.5-n" + num + "-lz0-sp0-nt0-sa1-p0-c1-fs0-cw320.html";
+                intent.putExtra("推荐",str);
+                startActivity(intent);
+
+            }
+        });
+    }
+
+
 }

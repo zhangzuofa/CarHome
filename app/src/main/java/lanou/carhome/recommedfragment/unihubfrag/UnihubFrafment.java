@@ -1,7 +1,10 @@
 package lanou.carhome.recommedfragment.unihubfrag;
 
+import android.widget.ListView;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import lanou.carhome.R;
@@ -34,7 +37,23 @@ public class UnihubFrafment extends BaseFragment {
     @Override
     protected void initDate() {
         initRequestInternet();
+        initRefrshTo();
 
+    }
+
+    private void initRefrshTo() {
+        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                initRequestInternet();
+
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            }
+        });
     }
 
     private void initRequestInternet() {
@@ -45,6 +64,8 @@ public class UnihubFrafment extends BaseFragment {
                         UnihubAdapter unihubAdapter = new UnihubAdapter(getContext());
                         unihubAdapter.setBean(response);
                         listView.setAdapter(unihubAdapter);
+                        listView.onRefreshComplete();
+
 
 
 
@@ -58,4 +79,6 @@ public class UnihubFrafment extends BaseFragment {
         VollaySingleton.getInstance().addRequest(gsonRequst);
 
     }
+
+
 }

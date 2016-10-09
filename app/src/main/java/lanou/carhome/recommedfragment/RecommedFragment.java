@@ -28,6 +28,7 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
     private ImageView search_img;
     private TabLayout tb;
     private ViewPager vp;
+    private ImageView img;
 
     @Override
     protected int setLayout() {
@@ -36,26 +37,7 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initDate() {
-//        listView.setMode(PullToRefreshListView.Mode.BOTH);
-//        initSend();
 //
-//        innitReFresh();
-
-
-
-
-    }
-
-    @Override
-    protected void initView() {
-//        listView = bindView(R.id.Refresh_headline);
-//        view1 = LayoutInflater.from(getContext()).inflate(R.layout.luoboitem,null);
-//        banner = (Banner) view1.findViewById(R.id.banner_item);
-        search_img = bindView(R.id.recommed_search);
-        search_img.setOnClickListener(this);
-        tb = bindView(R.id.allrecommed_tb);
-        vp = bindView(R.id.allrecommed_vp);
-
         ArrayList<String> title = new ArrayList<>();
 
         title.add("推荐");
@@ -71,27 +53,28 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
         title.add("技术");
         title.add("文化");
         title.add("改装");
-//        ArrayList<Fragment>fragments = new ArrayList<>();
-//        fragments.add(new SmallRecommedFrag());
-//        fragments.add(new UnihubFrafment());
-//        fragments.add(new SayFragment());
-//        fragments.add(new VideoFragment());
-//        fragments.add(new QuickNewsFragment());
-//        fragments.add(new MarketFragement());
-//
-//        for (int i = 0; i < 7; i++) {
-//
-//            fragments.add(new UseCarFrag());
-//
-//        }
         AllRecommedAdapter allAdapter = new AllRecommedAdapter(getChildFragmentManager());
-     //   allAdapter.setFragments(fragments);
+        //   allAdapter.setFragments(fragments);
         allAdapter.setTitle(title);
         vp.setAdapter(allAdapter);
         tb.setupWithViewPager(vp);
 
 
 
+
+    }
+
+    @Override
+    protected void initView() {
+//        listView = bindView(R.id.Refresh_headline);
+//        view1 = LayoutInflater.from(getContext()).inflate(R.layout.luoboitem,null);
+//        banner = (Banner) view1.findViewById(R.id.banner_item);
+        search_img = bindView(R.id.recommed_search);
+        search_img.setOnClickListener(this);
+        tb = bindView(R.id.allrecommed_tb);
+        vp = bindView(R.id.allrecommed_vp);
+        img = bindView(R.id.recommed_fragment_more_img);
+        img.setOnClickListener(this);
 
 
 
@@ -199,6 +182,11 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
 
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
+                break;
+            case R.id.recommed_fragment_more_img:
+             Intent intent1  = new Intent(getContext(),MoreActivity.class);
+                startActivity(intent1);
+
                 break;
         }
 
