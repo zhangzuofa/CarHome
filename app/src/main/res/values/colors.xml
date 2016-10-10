@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlue">#3F89FE</color>
     <color name="colorOrange">#FF8000</color>
+    <color name="nightColorPrimary">#3b3b3b</color>
+    <color name="nightColorPrimaryDark">#383838</color>
+    <color name="nightColorAccent">#a72b55</color>
+    <color name="carnamen">#dd1c1d1d</color>
 </resources>

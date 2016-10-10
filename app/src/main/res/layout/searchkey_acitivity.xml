@@ -52,5 +52,29 @@
 
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ListView
+            android:id="@+id/searchactivity_lisrview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </ListView>
+        <WebView
+            android:visibility="gone"
+            android:id="@+id/search_activity_web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </WebView>
+    </RelativeLayout>
+
+
+
+
 
 </LinearLayout>

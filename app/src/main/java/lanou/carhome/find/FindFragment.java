@@ -1,5 +1,6 @@
 package lanou.carhome.find;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,7 @@ import lanou.carhome.find.everyoneadpter.ForMeAdapter;
 import lanou.carhome.find.everyoneadpter.MyLoveAdapter;
 import lanou.carhome.find.everyoneadpter.ServeAdapter;
 import lanou.carhome.find.everyoneadpter.TimeLimitAdapter;
+import lanou.carhome.forumfragment.formed.ForumedWebVIewActivity;
 import lanou.carhome.main.DividerItemDecoration;
 import lanou.carhome.recommedfragment.smallrecommedfrag.OnClickLisenerRecycleView;
 import lanou.carhome.volley.GsonRequest;
@@ -295,11 +297,50 @@ public class FindFragment extends BaseFragment {
             public void onClick(int position, RecyclerView.ViewHolder holder) {
              switch (position){
                  case 0:
+
                      Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
                      break;
                  case 1:
-                     Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                     Intent intentWeb = new Intent(getActivity(),ForumedWebVIewActivity.class);
+                     intentWeb.putExtra("论坛详情网址",URLValues.DISCOVER_CAR_MALL);
+                  //   Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                     startActivity(intentWeb);
                      break;
+                 case 2:
+                     Intent intentWebFenqi = new Intent(getActivity(),ForumedWebVIewActivity.class);
+                     intentWebFenqi.putExtra("论坛详情网址",URLValues.DISCOVER_HIRE_CAR);
+                     //   Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                     startActivity(intentWebFenqi);
+
+                 break;
+                 case 3:
+                     Intent intentKeepCar = new Intent(getContext(),ForumedWebVIewActivity.class);
+                     intentKeepCar.putExtra("论坛详情网址",URLValues.DISCOVER_SUBSIDY_HOME);
+                     startActivity(intentKeepCar);
+                     break;
+                 case 4:
+                     Intent intentTwoCar = new Intent(getContext(),ForumedWebVIewActivity.class);
+                     intentTwoCar.putExtra("论坛详情网址",URLValues.DISCOVER_FIND_CAR);
+                     startActivity(intentTwoCar);
+                     break;
+                 case 5:
+                     break;
+                 case 6:
+                     break;
+                 case 7:
+                     Intent intentGroupCar = new Intent(getContext(),ForumedWebVIewActivity.class);
+                     intentGroupCar.putExtra("论坛详情网址",URLValues.DISCOVER_GROUP_BUY);
+                     startActivity(intentGroupCar);
+                     break;
+                 case 8:
+                     Intent intentLoveCar = new Intent(getContext(),ForumedWebVIewActivity.class);
+                     intentLoveCar.putExtra("论坛详情网址",URLValues.DISCOVER_CAR_VALUATION);
+                     startActivity(intentLoveCar);
+                     break;
+                 case 9:
+                     break;
+
+
 
              }
 

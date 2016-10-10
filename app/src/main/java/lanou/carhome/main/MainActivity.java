@@ -25,6 +25,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return R.layout.activity_main;
     }
 
+
+
     @Override
     protected void initView() {
         RadioButton radioBtnRecom = bindView(R.id.main_radiobtn_recommed);
@@ -37,6 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         radioBtnFindCar.setOnClickListener(this);
         radioBtnFind.setOnClickListener(this);
         radioBtnPerson.setOnClickListener(this);
+
 
 
 
@@ -74,6 +77,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_radiobtn_personnal:
                 transaction.replace(R.id.main_framelayout,new PersonFragment());
                 break;
+
             default:
                 break;
 

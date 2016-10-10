@@ -100,4 +100,24 @@ public final class URLValues {
     //http://y.autohome.com.cn/ 游记
     // 优创
     //http://news.app.autohome.com.cn/newspf_v7.1.0/newspf/NPNewsList.ashx?a=2&pm=2&v=7.1.5&au=&type=3&lastid=&lastuid=27774674&size=30
+    // 车商城 (webview)
+    public static final String DISCOVER_CAR_MALL = "http://m.mall.autohome.com.cn/?isapp=1";
+    // 分期购车 (webview)
+    public static final String DISCOVER_HIRE_CAR = "http://m.mall.autohome.com.cn/finance/list/3-0-0-0-0-0-0-0-0-1.html?isapp=1";
+    // 养车之家 (webview)
+    public static final String DISCOVER_SUBSIDY_HOME = "http://yc.m.autohome.com.cn/banner/list?serviceCity=210200&isWz=false";
+    // 找二手车 (webview)
+    public static final String DISCOVER_FIND_CAR = "http://m.che168.com/beijing/list/?sourcename=main&pvareaid=101964";
+    // 团购活动 (webview)
+    public static final String DISCOVER_GROUP_BUY = "http://tuan.m.autohome.com.cn/app/h5/home";
+    // 爱车估值 (webview)
+    public static final String DISCOVER_CAR_VALUATION = "http://m.che168.com/pinggu/?buymark=oaha10027&sellmark=oaha10026&appversionbuy=2.08V&appversionsell=2.04V&hideheadfoot=1&hidead=1&pvareaid=101375";
+    // 全部
+    public static final String DISCOVER_ALL_URL = "http://mobile.app.autohome.com.cn/discover_v7.1.0/mobile/entrylist.ashx?pm=1";
+    //搜索关键字
+    //http://mobilenc.app.autohome.com.cn/sou_v5.7.0/sou/suggestwords.ashx?pm=2&k=x&t=4
+   // http://mobilenc.app.autohome.com.cn/sou_v5.7.0/sou/suggestwords.ashx?pm=2&k=y&t=4
+   //搜索内容
+   // http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword=%E6%A1%91%E5%A1%94%E7%BA%B3&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0
+    //http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword=%E9%9B%AA%E4%BD%9B%E5%85%B0&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0
 }

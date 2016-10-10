@@ -2,6 +2,7 @@ package lanou.carhome.personnal;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import lanou.carhome.R;
@@ -19,6 +20,10 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
     private LinearLayout myDraftLl;
     private LinearLayout mySetLl;
 
+
+
+
+
     @Override
     protected int setLayout() {
         return R.layout.personfragment;
@@ -27,6 +32,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     protected void initDate() {
+
 
     }
 
@@ -42,6 +48,9 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
         myHistoryLl .setOnClickListener(this);
         myDraftLl.setOnClickListener(this);
         mySetLl.setOnClickListener(this);
+        ImageView imgYeJian =bindView(R.id.personal_fragment_yejian);
+        imgYeJian.setOnClickListener(this);
+
 
 
 
@@ -64,6 +73,10 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.personal_fragment_set_ll:
                 break;
+            case R.id.personal_fragment_yejian:
+
+                break;
+
 
         }
 
