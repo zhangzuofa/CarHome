@@ -13,9 +13,13 @@ import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.litesuits.orm.LiteOrm;
+
+import java.util.ArrayList;
 
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseActivity;
+import lanou.carhome.find.dbtool.SearchCarNameBean;
 import lanou.carhome.main.EncodeUtil;
 import lanou.carhome.recommedfragment.search.CarSesrchBean;
 import lanou.carhome.volley.GsonRequest;
@@ -30,6 +34,10 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
     private EditText ed;
     private ListView listView;
     private WebView webView;
+//     DBTool dbTool = DBTool.getintance();
+
+    private LiteOrm mLiteOrm;
+    private ArrayList<SearchCarNameBean> list;
 
     @Override
     protected int setLayout() {
@@ -38,19 +46,21 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initView() {
+        list = new ArrayList<>();
         ed = bindView(R.id.recommed_search_activity_ed);
         imgDelete = bindView(R.id.recommed_search_activity_img);
         imgDelete.setOnClickListener(this);
        ed.setOnClickListener(this);
         listView = bindView(R.id.searchactivity_lisrview);
         webView = bindView(R.id.search_activity_web);
-
+        mLiteOrm = LiteOrm.newSingleInstance(this,"myDataBase.db");
 
     }
 
     @Override
     protected void initDate() {
         initEdtext();
+
 
 
         }
@@ -120,7 +130,14 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
                 String str= EncodeUtil.encode(response.getResult().getWordlist().get(position).getName());
                 String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword="+ str + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
               //  Log.d("SearchKeyActivity", searchUrl);
-                ed.setText(response.getResult().getWordlist().get(position).getName());
+                String carName =response.getResult().getWordlist().get(position).getName();
+                ed.setText(carName);
+                SearchCarNameBean bean = new SearchCarNameBean();
+                bean.setName(carName);
+//                dbTool.insertPerdson(bean);
+                mLiteOrm.insert(bean);
+
+
                 webView.setVisibility(View.VISIBLE);
                 webView.loadUrl(searchUrl);
                 webView.setWebViewClient(new WebViewClient(){
@@ -142,12 +159,31 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
         });
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.recommed_search_activity_img:
 
                 ed.setText("");
+
+             //  ArrayList<SearchCarNameBean> query =  dbTool.getAllPerson();
+                ArrayList<SearchCarNameBean> query=
+                        mLiteOrm.query(SearchCarNameBean.class);
+                for (SearchCarNameBean bean:query){
+                    list.add(bean);
+                }
+
+
+            //    ArrayAdapter adapter = new ArrayAdapter(SearchKeyActivity.this,R.l,list);
+            //    listView.setAdapter(adapter);
+
+
+
+
+
+
+
 
                 break;
             case R.id.recommed_search_activity_ed:

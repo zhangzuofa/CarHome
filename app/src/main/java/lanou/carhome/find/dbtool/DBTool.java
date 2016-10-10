@@ -1,20 +1,21 @@
-package lanou.carhome.dbtools;
+package lanou.carhome.find.dbtool;
 
 import android.os.Handler;
 import android.os.Looper;
+
+import com.litesuits.orm.LiteOrm;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import lanou.carhome.findcarfragment.newcarfragment.Person;
 import lanou.carhome.main.MyApp;
 
 /**
  * Created by dllo on 16/10/10.
  */
-public class DBTools {
+public class DBTool {
     private  static DBTool sDBTool;
     private LiteOrm mLiteOrm;
     private ExecutorService threedPool;
@@ -22,7 +23,7 @@ public class DBTools {
 
 
     private DBTool() {
-        mLiteOrm = LiteOrm.newSingleInstance(MyApp.getmContext(),"dataBase.db");
+        mLiteOrm = LiteOrm.newSingleInstance(MyApp.getContext(),"myCarname.db");
 
         threedPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()+ 1);
         // 在构建Handler 时候参数传  Looper.getMainLooper() 这样可以保证该 HAndler 一定属于主线程
@@ -43,7 +44,7 @@ public class DBTools {
         return sDBTool;
     }
     //插入数据
-    public void  insertPerdson (final Person person){
+    public void  insertPerdson (final SearchCarNameBean person){
 
         threedPool.execute(new Runnable() {
             @Override
@@ -53,20 +54,20 @@ public class DBTools {
         });
 
     }
-    public void insertPerson(List<Person> persons){
+    public void insertPerson(List<SearchCarNameBean> persons){
         mLiteOrm.insert(persons);
     }
 
-    public void getAllPerson(final QueryListener<Person> queryListener){
+    public void getAllPerson(final QueryListener<SearchCarNameBean> queryListener){
 
 
 
         threedPool.execute(new Runnable() {
             @Override
             public void run() {
-                ArrayList<Person> persons =  mLiteOrm.query(Person.class);
+                ArrayList<SearchCarNameBean> persons =  mLiteOrm.query(SearchCarNameBean.class);
                 //handler 的post 方法可以 发送到主线程去执行
-                mHandler.post(new HanlerRunnable<Person>(queryListener,persons));
+                mHandler.post(new HanlerRunnable<SearchCarNameBean>(queryListener,persons));
 
 
             }
@@ -95,6 +96,5 @@ public class DBTools {
         void onQuery(List<T> persons);
 
     }
-
 
 }
