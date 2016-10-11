@@ -24,7 +24,10 @@
                android:drawableLeft="@mipmap/ahlib_nav_icon_search_p"
                android:hint="搜索关键字"
                android:textColor="#0d100f"
-               android:background="@null"/>
+               android:background="@null"
+               android:imeOptions="actionSearch"
+               android:singleLine="true"
+               android:maxLines="1"/>
             <ImageView
                 android:id="@+id/recommed_search_activity_img"
                 android:layout_width="0dp"
@@ -41,6 +44,7 @@
             android:layout_weight="1.8"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/search_cancel_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="取消"

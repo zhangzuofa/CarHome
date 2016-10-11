@@ -16,7 +16,9 @@ import lanou.carhome.recommedfragment.search.CarSesrchBean;
  */
 public class SearchAdapter extends BaseAdapter {
     Context mContext;
+    public int i = 1;
     CarSesrchBean bean;
+
 
     public void setBean(CarSesrchBean bean) {
         this.bean = bean;
