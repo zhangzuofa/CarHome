@@ -15,6 +15,7 @@
            />
 
    <ImageView
+       android:id="@+id/fin_fragment_search_img"
        android:layout_margin="6dp"
        android:layout_width="35dp"
        android:layout_height="35dp"

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">汽车之家</string>
+    <string name="morelongClick">长按可拖动排序</string>
+    <string name="web_comments">发表回帖</string>
     <string-array name="alls">
         <item>媳妇当车模</item>
         <item>美人"记"</item>

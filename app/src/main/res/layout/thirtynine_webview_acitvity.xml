@@ -20,13 +20,45 @@
 
     </LinearLayout>
     <WebView
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+
         android:id="@+id/thirtynine_Activity_webview"
         >
 
     </WebView>
 
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <TextView
+            android:textColor="@color/swap_holo_bule_bright"
+            android:text="@string/web_comments"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/umeng_socialize_action_comment_selected"/>
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/umeng_socialize_action_unlike"/>
+        <Button
+            android:id="@+id/thirtynine_Activity_webview_share_btn"
+            android:layout_marginLeft="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/umeng_socialize_action_share_selected"/>
+    </LinearLayout>
 
 
 </LinearLayout>

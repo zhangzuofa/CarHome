@@ -15,20 +15,11 @@
             android:layout_centerInParent="true">
 
         </android.support.design.widget.TabLayout>
-
         <ImageView
-            android:id="@+id/findCarFragment_AddImg"
+            android:id="@+id/findcar_fragemnt_search_img"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/jiajian"
-            android:layout_toLeftOf="@+id/findCarFragment_VS"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:id="@+id/findCarFragment_VS"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:textSize="20sp"
-            android:text="VS"
+            android:background="@mipmap/ahlib_nav_icon_search_p"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"/>
 

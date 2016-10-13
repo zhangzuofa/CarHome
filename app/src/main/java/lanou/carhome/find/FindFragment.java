@@ -30,6 +30,7 @@ import lanou.carhome.find.everyoneadpter.ServeAdapter;
 import lanou.carhome.find.everyoneadpter.TimeLimitAdapter;
 import lanou.carhome.forumfragment.formed.ForumedWebVIewActivity;
 import lanou.carhome.main.DividerItemDecoration;
+import lanou.carhome.recommedfragment.SearchKeyActivity;
 import lanou.carhome.recommedfragment.smallrecommedfrag.OnClickLisenerRecycleView;
 import lanou.carhome.volley.GsonRequest;
 import lanou.carhome.volley.URLValues;
@@ -38,7 +39,7 @@ import lanou.carhome.volley.VollaySingleton;
 /**
  * Created by dllo on 16/9/19.
  */
-public class FindFragment extends BaseFragment {
+public class FindFragment extends BaseFragment implements View.OnClickListener {
 
     private PullToRefreshListView listView;
     private View viewFindTop;
@@ -58,6 +59,7 @@ public class FindFragment extends BaseFragment {
     private ImageView imgOneMoreSports;
     private ImageView imgTwoMoreSports;
     private ImageView imgThreeMoreSports;
+    private ImageView searchImg;
 
 
     @Override
@@ -84,6 +86,8 @@ public class FindFragment extends BaseFragment {
         //商品列表
         listViewT.addHeaderView(viewGoodsList);
         innitPullToRefresh();
+
+
 
 
 
@@ -150,7 +154,8 @@ public class FindFragment extends BaseFragment {
         imgOneMoreSports = bindView(R.id.forme_moreSports_img_one,viewForMe);
         imgTwoMoreSports = bindView(R.id.forme_moreSports_img_two,viewForMe);
         imgThreeMoreSports = bindView(R.id.forme_moreSports_img_three,viewForMe);
-
+        searchImg = bindView(R.id.fin_fragment_search_img);
+        searchImg.setOnClickListener(this);
 
 
 
@@ -349,4 +354,13 @@ public class FindFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fin_fragment_search_img:
+                Intent intent = new Intent(getContext(), SearchKeyActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

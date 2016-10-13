@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseFragment;
 import lanou.carhome.personnal.mycollection.MyLoveActivity;
+import lanou.carhome.personnal.setactivity.SetActivity;
 
 /**
  * Created by dllo on 16/9/19.
@@ -72,6 +73,9 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
             case R.id.personal_fragment_draft_ll:
                 break;
             case R.id.personal_fragment_set_ll:
+                Intent setIntent = new Intent(getActivity(),SetActivity.class);
+                startActivity(setIntent);
+                getActivity().overridePendingTransition(R.anim.anim_main_right,R.anim.anim_main_toleft);
                 break;
             case R.id.personal_fragment_yejian:
 
