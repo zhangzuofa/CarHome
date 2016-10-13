@@ -11,4 +11,12 @@
     <color name="carnamen">#dd1c1d1d</color>
     <color name="hitorycolor">#dbe1e1</color>
     <color name="longClick">#b1afaf</color>
+    <color name="tiaoguo">#a1a1a1</color>
+    <color name="textwhite">#ffffff</color>
+    <color name="blue">#3F89FE</color>
+    <color name="orange">#FF8000</color>
+    <color name="search_remove_text_color">#878787</color>
+    <color name="black">#000000</color>
+    <color name="gray">#20878787</color>
+    <color name="write">#ffffff</color>
 </resources>

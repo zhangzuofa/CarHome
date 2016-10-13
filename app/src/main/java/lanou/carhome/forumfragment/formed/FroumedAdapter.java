@@ -19,6 +19,8 @@ public class FroumedAdapter extends BaseAdapter {
     Context mContext;
     ForumedBean bean;
 
+
+
     public void setBean(ForumedBean bean) {
         this.bean = bean;
         notifyDataSetChanged();
@@ -61,7 +63,14 @@ public class FroumedAdapter extends BaseAdapter {
 
         return convertView;
     }
-   class ViewHolder{
+
+    public void setBean1(ForumedBean response) {
+
+        bean.getResult().getList().addAll(response.getResult().getList());
+        notifyDataSetChanged();
+    }
+
+    class ViewHolder{
 
        private TextView tvTitle;
        private TextView tvForumed;

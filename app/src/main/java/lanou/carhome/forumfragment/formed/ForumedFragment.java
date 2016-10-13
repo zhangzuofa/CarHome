@@ -43,6 +43,8 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
     private Button btnChage;
     private ImageView imgViewTop;
     private ImageView imgViewTopJXImg;
+    private int num;
+    private FroumedAdapter adapter;
 
 
     @Override
@@ -52,6 +54,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     protected void initDate() {
+        num = 0;
         innitInternet();
 
         ListView listViewTop = forumListV.getRefreshableView();
@@ -60,9 +63,11 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
 
 
+
     }
 
     private void innitRefresh() {
+
         forumListV.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
@@ -76,6 +81,34 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+                num = num + 1;
+                String url ="http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=0&pageindex="+ num+"&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=1&netstate=0&gps=38.889726%2C121.550943";
+               // Log.d("试试", url);
+             //   forumListV.onRefreshComplete();
+
+                GsonRequest<ForumedBean> gsonRequest  = new GsonRequest<ForumedBean>(url, ForumedBean.class,
+                        new Response.Listener<ForumedBean>() {
+                            @Override
+                            public void onResponse(ForumedBean response) {
+
+
+                                adapter.setBean1(response);
+
+                                forumListV.onRefreshComplete();
+
+
+
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+                VollaySingleton.getInstance().addRequest(gsonRequest);
+
+
 
             }
         });
@@ -135,6 +168,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
         btnSister.setOnClickListener(this);
         btnRed.setOnClickListener(this);
         btnChage.setOnClickListener(this);
+        forumListV.setMode(PullToRefreshBase.Mode.BOTH);
 
 
 
@@ -150,10 +184,11 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
                     @Override
                     public void onResponse(ForumedBean response) {
                         forumListV.onRefreshComplete();
-                        FroumedAdapter adapter = new FroumedAdapter(getContext());
+                        adapter = new FroumedAdapter(getContext());
                         adapter.setBean(response);
                         forumListV.setAdapter(adapter);
                         inintOnClickLisener(response);
+
 
 
 

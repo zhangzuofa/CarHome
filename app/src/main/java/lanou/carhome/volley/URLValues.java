@@ -4,6 +4,8 @@ package lanou.carhome.volley;
  * Created by dllo on 16/9/20.
  */
 public final class URLValues {
+    //欢迎页
+    public final static String URL_WELCOME ="http://url.cn/40IP3VW";
 
 //  第一页
     //推荐
@@ -36,7 +38,9 @@ public final class URLValues {
     public final static String FORUMED_URL="http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=0&pageindex=1&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=1&netstate=0&gps=38.889726%2C121.550943";
     public final static String Hot_URL = "http://183.232.160.141/club.app.autohome.com.cn/club_v7.0.5/club/shotfoumlist-pm2-p1-s50.json";
 
-    public static final String WIFE_MODEL_URL = "http://url.cn/29qrugI";//媳妇当车模
+//    public static final String WIFE_MODEL_URL = "http://url.cn/29qrugI";//媳妇当车模
+  public static final String WIFE_MODEL_URL ="http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=104&pageindex=1&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=1&netstate=0&gps=38.889722%2C121.550939";
+   // http://clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=104&pageindex=2&pagesize=30&devicetype=android.1501_M02&deviceid=860954030358581&userid=0&operation=2&netstate=0&gps=38.889722%2C121.550939
     public static final String NOTORIOUS_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=110&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";//美人”记”
     public static final String HOF_URL = "http://223.99.255.20/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=172&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098\"";//论坛红人堂
     public static final String LECTURER_URL = "http://183.232.160.141/clubnc.app.autohome.com.cn/club_v7.0.5/club/jingxuantopic.ashx?platud=2&categoryid=230&pageindex=1&pagesize=30&devicetype=android.Coolpad+8722V&deviceid=869954020592562&userid=0&operation=1&netstate=0&gps=38.889723%2C121.55098";//论坛讲师

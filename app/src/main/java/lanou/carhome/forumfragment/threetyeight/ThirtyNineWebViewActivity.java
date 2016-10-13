@@ -31,7 +31,7 @@ public class ThirtyNineWebViewActivity extends BaseActivity implements View.OnCl
 
     @Override
     protected void initView() {
-        ShareSDK.initSDK(this);
+       // ShareSDK.initSDK(this);
         webView = bindView(R.id.thirtynine_Activity_webview);
         img = bindView(R.id.thirtynine_webview_Activity_img);
         img.setOnClickListener(this);

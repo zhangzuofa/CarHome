@@ -50,12 +50,14 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/personal_fragment_weibo_img"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@mipmap/ahlib_share_wibo" />
 
             <ImageView
+                android:id="@+id/personal_fragment_qq_img"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

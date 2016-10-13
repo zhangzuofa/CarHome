@@ -82,6 +82,8 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
         vp = bindView(R.id.allrecommed_vp);
         img = bindView(R.id.recommed_fragment_more_img);
         img.setOnClickListener(this);
+        ImageView musicImg = bindView(R.id.recommed_music_img);
+        musicImg.setOnClickListener(this);
 
 
 
@@ -121,6 +123,10 @@ public class RecommedFragment extends BaseFragment implements View.OnClickListen
              Intent intent1  = new Intent(getContext(),MoreActivity.class);
                 startActivity(intent1);
 
+                break;
+            case R.id.recommed_music_img:
+                Intent musicIntent = new Intent(getContext(),MusicActivity.class);
+                startActivity(musicIntent);
                 break;
         }
 

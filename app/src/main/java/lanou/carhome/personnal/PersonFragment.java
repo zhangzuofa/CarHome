@@ -5,6 +5,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.tencent.qq.QQ;
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseFragment;
 import lanou.carhome.personnal.mycollection.MyLoveActivity;
@@ -51,6 +56,11 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
         mySetLl.setOnClickListener(this);
         ImageView imgYeJian =bindView(R.id.personal_fragment_yejian);
         imgYeJian.setOnClickListener(this);
+        ImageView weiboImg = bindView(R.id.personal_fragment_weibo_img);
+        ImageView qqImg = bindView(R.id.personal_fragment_qq_img);
+        weiboImg.setOnClickListener(this);
+        qqImg.setOnClickListener(this);
+        ShareSDK.initSDK(getContext());
 
 
 
@@ -59,6 +69,8 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+        PlatformActionListener paListener = null;
+
         switch (v.getId()){
             case R.id.personfragmen_mylove_ll:
                 Intent myLoveIntent = new Intent(getActivity(),MyLoveActivity.class);
@@ -79,6 +91,23 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.personal_fragment_yejian:
 
+                break;
+            case R.id.personal_fragment_weibo_img:
+                Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
+
+                weibo.setPlatformActionListener(paListener);
+               //authorize与showUser单独调用一个即可
+                weibo.authorize();//单独授权,OnComplete返回的hashmap是空的
+                weibo.showUser(null);//授权并获取用户信息
+
+                break;
+            case R.id.personal_fragment_qq_img:
+                Platform qq = ShareSDK.getPlatform(QQ.NAME);
+
+                qq.setPlatformActionListener(paListener);
+               //authorize与showUser单独调用一个即可
+                qq.authorize();//单独授权,OnComplete返回的hashmap是空的
+                qq.showUser(null);//授权并获取用户信息
                 break;
 
 

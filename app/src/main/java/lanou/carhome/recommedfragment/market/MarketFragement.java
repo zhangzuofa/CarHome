@@ -96,7 +96,7 @@ public class MarketFragement extends BaseFragment {
                     @Override
                     public void onResponse(MarketBean response) {
                         listView.onRefreshComplete();
-                  MarketAdapter maeketAdapter = new MarketAdapter(getContext());
+                   MarketAdapter maeketAdapter = new MarketAdapter(getContext());
                         maeketAdapter.setBean(response);
                         listView.setAdapter(maeketAdapter);
                         innitOnClick(response);

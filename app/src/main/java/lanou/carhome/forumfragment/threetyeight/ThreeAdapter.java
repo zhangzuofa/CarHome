@@ -60,7 +60,13 @@ public class ThreeAdapter extends BaseAdapter {
         Picasso.with(mContext).load(bean.getResult().getList().get(position).getSmallpic()).into(viewHolder.img);
         return convertView;
     }
-   class ViewHolder{
+
+    public void setBeanMore(ThreeEightBean response) {
+        bean.getResult().getList().addAll(response.getResult().getList());
+        notifyDataSetChanged();
+    }
+
+    class ViewHolder{
 
       TextView tvTitle;
        TextView tvForum;

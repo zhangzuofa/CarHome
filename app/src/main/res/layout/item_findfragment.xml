@@ -9,8 +9,8 @@
         <ImageView
             android:layout_margin="5dp"
             android:id="@+id/item_fragment_img"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@mipmap/nav_icon_article_f"
             />
 

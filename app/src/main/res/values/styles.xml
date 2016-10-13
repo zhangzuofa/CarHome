@@ -18,5 +18,9 @@
         <item name="mainBackground">@color/nightColorPrimaryDark</item>
     </style>
     <attr name="mainBackground" format="color|reference"></attr>
+    <style name="set_up_text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000</item>
+    </style>
 
 </resources>

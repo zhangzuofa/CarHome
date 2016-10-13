@@ -9,8 +9,9 @@
     android:paddingTop="5dp" >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/nav_icon_article_f"
         android:id="@+id/item_suoyin_img"/>
     <TextView
         android:layout_marginLeft="15dp"

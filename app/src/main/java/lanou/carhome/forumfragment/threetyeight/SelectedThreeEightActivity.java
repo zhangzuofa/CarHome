@@ -5,9 +5,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.ArrayList;
@@ -27,6 +29,9 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
     private int position;
     private PullToRefreshListView lv;
     private ImageView img;
+    private int num;
+    private ThreeAdapter adapter;
+    private String url;
 
     @Override
     protected int setLayout() {
@@ -38,6 +43,7 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         lv = bindView(R.id.selectRecomThreeEight_refresh);
         img = (ImageView) findViewById(R.id.selectedThEightActivity_img);
         img.setOnClickListener(this);
+        lv.setMode(PullToRefreshBase.Mode.BOTH);
 
 
 
@@ -95,7 +101,52 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         list.add(URLValues.SEA_PEARL_URL );
 
         innitRequestInternet();
+        inintRefrshPull();
 
+    }
+
+    private void inintRefrshPull() {
+        num = 1;
+        lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                innitRequestInternet();
+
+
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+                url = list.get(position);
+                num = num +1;
+              url =url.replace("pageindex=1","pageindex="+num);
+
+
+                GsonRequest<ThreeEightBean> gsonRequesty = new GsonRequest<ThreeEightBean>(url, ThreeEightBean.class,
+                        new Response.Listener<ThreeEightBean>() {
+                            @Override
+                            public void onResponse(ThreeEightBean response) {
+
+                                adapter.setBeanMore(response);
+
+                                lv.onRefreshComplete();
+
+
+
+
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+                VollaySingleton.getInstance().addRequest(gsonRequesty);
+
+
+
+            }
+        });
     }
 
     private void innitRequestInternet() {
@@ -103,10 +154,13 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
                 new Response.Listener<ThreeEightBean>() {
                     @Override
                     public void onResponse(ThreeEightBean response) {
-                        ThreeAdapter adapter = new ThreeAdapter(SelectedThreeEightActivity.this);
+                        lv.onRefreshComplete();
+                        adapter = new ThreeAdapter(SelectedThreeEightActivity.this);
                         adapter.setBean(response);
                         lv.setAdapter(adapter);
-                        initOnClickLissenner(response);
+                       initOnClickLissenner(response);
+
+
 
 
 

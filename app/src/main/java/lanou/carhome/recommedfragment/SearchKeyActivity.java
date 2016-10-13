@@ -154,12 +154,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
                         newList.add(0,bean);
 
                     }
-                    if (newList.size()> 0){
-                 //       view.setVisibility(View.VISIBLE);
-                    }
-//                    view.setVisibility(View.VISIBLE);
-
-
+//
 
                 }
                 innitRequestInternet(s);

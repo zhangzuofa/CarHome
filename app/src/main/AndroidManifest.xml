@@ -46,7 +46,7 @@
         </activity>
 
 
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".welcome.WelComeAcitivty">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".main.MainActivity"/>
         <activity android:name=".forumfragment.hotforum.HotActivity"/>
         <activity android:name=".forumfragment.slectedrecommedacitivity.SelectedRecommedAcitivity"/>
         <activity android:name=".forumfragment.threetyeight.SelectedThreeEightActivity"/>
@@ -66,6 +67,7 @@
         <activity android:name=".recommedfragment.moreactivity.MoreActivity"/>
         <activity android:name=".recommedfragment.smallrecommedfrag.RecommedDetailActivity"/>
         <activity android:name=".personnal.setactivity.SetActivity"/>
+        <activity android:name=".recommedfragment.MusicActivity"/>
     </application>
 
 </manifest>
