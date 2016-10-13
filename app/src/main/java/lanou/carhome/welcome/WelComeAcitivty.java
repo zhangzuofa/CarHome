@@ -65,6 +65,7 @@ public class WelComeAcitivty extends BaseActivity implements View.OnClickListene
                             startActivity(intent);
                             WelComeAcitivty.this.finish();
 
+
                         }
                     }
                 });
@@ -104,6 +105,7 @@ public class WelComeAcitivty extends BaseActivity implements View.OnClickListene
             case R.id.welcome_relaLayout:
                 Intent intent = new Intent(WelComeAcitivty.this, MainActivity.class);
                 startActivity(intent);
+                timer.cancel();
                 this.finish();
 
                 break;

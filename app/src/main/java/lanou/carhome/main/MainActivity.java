@@ -2,8 +2,10 @@ package lanou.carhome.main;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseActivity;
@@ -18,6 +20,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     NewCarFragment   newCarFragment = new NewCarFragment();
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    private long clickTime = 0; //记录第一次点击的时间
 
     @Override
     protected int setLayout() {
@@ -43,6 +48,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
 
+
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if ((System.currentTimeMillis() - clickTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次退出汽车之家",
+                    Toast.LENGTH_SHORT).show();
+            clickTime = System.currentTimeMillis();
+        } else {
+          //  Log.e(TAG, "exit application");
+            this.finish();
+//     System.exit(0);
+        }
     }
 
     @Override

@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by dllo on 16/9/19.
  */
@@ -28,4 +30,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         return (T)v.findViewById(id);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
 }
