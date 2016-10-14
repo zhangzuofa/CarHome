@@ -13,9 +13,9 @@ import lanou.carhome.R;
  * Created by dllo on 16/9/22.
  */
 public class SelectedRecAdapter extends BaseAdapter {
-    Context mCotext;
+    private Context mCotext;
 
-    String[] arrayList ;
+    private String[] arrayList ;
 
     public void setArrayList(String[] arrayList) {
         this.arrayList = arrayList;

@@ -17,7 +17,7 @@ import lanou.carhome.R;
  */
 public class MainCarAdapter extends RecyclerView.Adapter<MainCarAdapter.ViewHolder> {
 
-    MainCarBean bean;
+    private MainCarBean bean;
 
     public void setBean(MainCarBean bean) {
         this.bean = bean;
@@ -27,7 +27,7 @@ public class MainCarAdapter extends RecyclerView.Adapter<MainCarAdapter.ViewHold
         this.mContext = mContext;
     }
 
-    Context mContext;
+    private Context mContext;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_maincar,null);

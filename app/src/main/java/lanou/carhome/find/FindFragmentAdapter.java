@@ -17,14 +17,14 @@ import lanou.carhome.R;
  */
 public class FindFragmentAdapter extends BaseAdapter {
 
-    FindBean bean;
+    private FindBean bean;
     private int num;
 
     public void setBean(FindBean bean) {
         this.bean = bean;
     }
 
-    Context mContext;
+   private Context mContext;
 
     public FindFragmentAdapter(Context mContext) {
         this.mContext = mContext;
@@ -75,11 +75,11 @@ public class FindFragmentAdapter extends BaseAdapter {
         return convertView;
     }
     class ViewHolder{
-        TextView tvTitle;
-        TextView tvAdinfo;
-        TextView tvPrice;
-        TextView tvOldPrice;
-        ImageView img;
+        private TextView tvTitle;
+        private TextView tvAdinfo;
+        private TextView tvPrice;
+        private TextView tvOldPrice;
+        private ImageView img;
 
 
         public ViewHolder(View view){

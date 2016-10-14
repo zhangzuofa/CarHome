@@ -41,4 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onPause();
         JPushInterface.onPause(this);
     }
+
+
 }

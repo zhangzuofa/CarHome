@@ -15,7 +15,7 @@ import lanou.carhome.recommedfragment.search.CarSesrchBean;
  * Created by dllo on 16/10/10.
  */
 public class SearchAdapter extends BaseAdapter {
-    Context mContext;
+    private Context mContext;
     public int i = 1;
     CarSesrchBean bean;
 
@@ -30,7 +30,7 @@ public class SearchAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return bean == null? 0 :bean.getResult().getWordlist().size();
+        return bean == null ? 0 : bean.getResult().getWordlist().size();
     }
 
     @Override
@@ -45,9 +45,9 @@ public class SearchAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-       ViewHolder viewHolder = null;
-        if (convertView == null){
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_search,null);
+        ViewHolder viewHolder = null;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_search, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
 
@@ -58,12 +58,13 @@ public class SearchAdapter extends BaseAdapter {
         viewHolder.tv.setText(bean.getResult().getWordlist().get(position).getName());
         return convertView;
     }
-    class ViewHolder{
+
+    class ViewHolder {
         private TextView tv;
         private ImageView img;
-        public ViewHolder(View view){
-            tv = (TextView) view.findViewById(R.id.searchactivity_tv);
 
+        public ViewHolder(View view) {
+            tv = (TextView) view.findViewById(R.id.searchactivity_tv);
 
 
         }

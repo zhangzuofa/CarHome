@@ -16,8 +16,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/9/21.
  */
 public class FroumedAdapter extends BaseAdapter {
-    Context mContext;
-    ForumedBean bean;
+    private Context mContext;
+    private ForumedBean bean;
 
 
 

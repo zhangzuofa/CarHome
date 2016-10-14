@@ -19,7 +19,7 @@ import lanou.carhome.recommedfragment.smallrecommedfrag.OnClickLisenerRecycleVie
  * Created by dllo on 16/9/25.
  */
 public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHolder> {
-    FindBean bean;
+   private FindBean bean;
     OnClickLisenerRecycleView onClickLisenerRecycleView;
 
     public void setOnClickLisenerRecycleView(OnClickLisenerRecycleView onClickLisenerRecycleView) {
@@ -30,7 +30,7 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHo
         this.bean = bean;
     }
 
-    Context mContext;
+    private Context mContext;
 
     public BusinessAdapter(Context mContext) {
         this.mContext = mContext;

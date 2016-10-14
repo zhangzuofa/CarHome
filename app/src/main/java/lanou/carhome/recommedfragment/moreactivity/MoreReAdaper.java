@@ -18,7 +18,7 @@ import lanou.carhome.R;
  */
 public class MoreReAdaper  extends RecyclerView.Adapter<MoreReAdaper.ViewHolder>{
     private Context mContext;
-    MoreBean bean;
+    private MoreBean bean;
    private OnClickLisenerRcycleMoreActy onClickLisenerRcycleMoreActy;
 
     public void setOnClickLisenerRcycleMoreActy(OnClickLisenerRcycleMoreActy onClickLisenerRcycleMoreActy) {

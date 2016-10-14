@@ -61,6 +61,12 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     private ImageView imgThreeMoreSports;
     private ImageView searchImg;
 
+    //手指按下的点为(x1, y1)手指离开屏幕的点为(x2, y2)
+    float x1 = 0;
+    float x2 = 0;
+    float y1 = 0;
+    float y2 = 0;
+
 
     @Override
     protected int setLayout() {
@@ -71,13 +77,13 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     protected void initDate() {
 
         innitRequestInternet();
-        rcForme.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
-        rcForme.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.HORIZONTAL_LIST));
-        recycleViewMylove.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
-        recycleViewMylove.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.HORIZONTAL_LIST));
-        serveRecycleView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.HORIZONTAL_LIST));
-        serveRecycleView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
-        timeLimitRecycle.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.HORIZONTAL_LIST));
+        rcForme.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
+        rcForme.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL_LIST));
+        recycleViewMylove.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
+        recycleViewMylove.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL_LIST));
+        serveRecycleView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL_LIST));
+        serveRecycleView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST));
+        timeLimitRecycle.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL_LIST));
         ListView listViewT = listView.getRefreshableView();
         //最上全部头布局
         listViewT.addHeaderView(viewFindTop);
@@ -86,14 +92,51 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         //商品列表
         listViewT.addHeaderView(viewGoodsList);
         innitPullToRefresh();
-
-
-
-
-
+        //监控滑动监听
+    //    innitTouchListener();
 
 
     }
+
+//    private void innitTouchListener() {
+////        * Fragment中，注册
+////                * 接收MainActivity的Touch回调的对象
+////                * 重写其中的onTouchEvent函数，并进行该Fragment的逻辑处理
+////                */
+//        MainActivity.MyTouchListener myTouchListener = new MainActivity.MyTouchListener() {
+//            @Override
+//            public void onTouchEvent(MotionEvent event) {
+//                // 处理手势事件
+//                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    //当手指按下的时候
+//                    x1 = event.getX();
+//                    y1 = event.getY();
+//                }
+//                if(event.getAction() == MotionEvent.ACTION_UP) {
+//                    //当手指离开的时候
+//                    x2 = event.getX();
+//                    y2 = event.getY();
+//                    if(y1 - y2 > 50) {
+//                      //  Toast.makeText(getContext(), "向上滑", Toast.LENGTH_SHORT).show();
+//                    } else if(y2 - y1 > 1500) {
+//                     Toast.makeText(getContext(), "向下滑", Toast.LENGTH_SHORT).show();
+//
+//                    } else if(x1 - x2 > 50) {
+//                        Toast.makeText(getContext(), "向左滑", Toast.LENGTH_SHORT).show();
+//                    } else if(x2 - x1 > 50) {
+//                        Toast.makeText(getContext(), "向右滑", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//              //  return super.onTouchEvent(event);
+//            }
+//
+//
+//  //      }
+//      };
+//
+//        // 将myTouchListener注册到分发列表
+//        ((MainActivity)this.getActivity()).registerMyTouchListener(myTouchListener);
+//    }
 
     private void innitPullToRefresh() {
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -121,8 +164,6 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 listView.setAdapter(adapter);
 
 
-
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -136,37 +177,26 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView() {
         listView = bindView(R.id.RefreshListview_Find);
-        viewFindTop = LayoutInflater.from(getContext()).inflate(R.layout.findtop_findfragment,null);
-        viewForMe = LayoutInflater.from(getContext()).inflate(R.layout.viewforme,null);
-        img_ad = bindView(R.id.findtop_findfragment_img_Ad,viewFindTop);
-        imgFindTop = bindView(R.id.findtop_findfragment_img_findTop,viewFindTop);
-        banner = bindView(R.id.banner_findFragmentTopView,viewFindTop);
-        yewuRcyclerView = bindView(R.id.findFragment_topView_rcyelerView_yewu,viewFindTop);
-        serveRecycleView = bindView(R.id.findFragment_topView_recyclerView_serve,viewFindTop);
-        timeLimitRecycle = bindView(R.id.findFragment_topView_rcyelerView_timeLimit,viewFindTop);
+        viewFindTop = LayoutInflater.from(getContext()).inflate(R.layout.findtop_findfragment, null);
+        viewForMe = LayoutInflater.from(getContext()).inflate(R.layout.viewforme, null);
+        img_ad = bindView(R.id.findtop_findfragment_img_Ad, viewFindTop);
+        imgFindTop = bindView(R.id.findtop_findfragment_img_findTop, viewFindTop);
+        banner = bindView(R.id.banner_findFragmentTopView, viewFindTop);
+        yewuRcyclerView = bindView(R.id.findFragment_topView_rcyelerView_yewu, viewFindTop);
+        serveRecycleView = bindView(R.id.findFragment_topView_recyclerView_serve, viewFindTop);
+        timeLimitRecycle = bindView(R.id.findFragment_topView_rcyelerView_timeLimit, viewFindTop);
 
-        viewGoodsList = LayoutInflater.from(getContext()).inflate(R.layout.viewgoodslist,null);
-  //    为我推荐 和喜欢还有
-        rcForme =bindView(R.id.forme_RecycleV,viewForMe);
-        recycleViewMylove = bindView(R.id.foryou_recycle,viewForMe);
-        imgDaiKuan = bindView(R.id.forme_daikuan_img,viewForMe);
+        viewGoodsList = LayoutInflater.from(getContext()).inflate(R.layout.viewgoodslist, null);
+        //    为我推荐 和喜欢还有
+        rcForme = bindView(R.id.forme_RecycleV, viewForMe);
+        recycleViewMylove = bindView(R.id.foryou_recycle, viewForMe);
+        imgDaiKuan = bindView(R.id.forme_daikuan_img, viewForMe);
 
-        imgOneMoreSports = bindView(R.id.forme_moreSports_img_one,viewForMe);
-        imgTwoMoreSports = bindView(R.id.forme_moreSports_img_two,viewForMe);
-        imgThreeMoreSports = bindView(R.id.forme_moreSports_img_three,viewForMe);
+        imgOneMoreSports = bindView(R.id.forme_moreSports_img_one, viewForMe);
+        imgTwoMoreSports = bindView(R.id.forme_moreSports_img_two, viewForMe);
+        imgThreeMoreSports = bindView(R.id.forme_moreSports_img_three, viewForMe);
         searchImg = bindView(R.id.fin_fragment_search_img);
         searchImg.setOnClickListener(this);
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -194,12 +224,12 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         adapter.setBean(response);
         listView.setAdapter(adapter);
         // 为你推荐
-        ForMeAdapter forMeAdapter= new ForMeAdapter(getContext());
+        ForMeAdapter forMeAdapter = new ForMeAdapter(getContext());
         forMeAdapter.setBean(response);
         rcForme.setAdapter(forMeAdapter);
-        GridLayoutManager manager = new GridLayoutManager(getContext(),2);
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
         rcForme.setLayoutManager(manager);
-    // 轮播图
+        // 轮播图
 
         for (int i = 0; i < response.getResult().getCardlist().get(0).getData().size(); i++) {
             listBanner.add(response.getResult().getCardlist().get(0).getData().get(i).getImageurl());
@@ -210,34 +240,31 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         banner.setImages(listBanner);
 
         //广告判断 有用
-     //   Picasso.with(getContext()).load(response.getResult().getCardlist().get(4).getData().get(0).getImageurl()).into(img_ad);
+        //   Picasso.with(getContext()).load(response.getResult().getCardlist().get(4).getData().get(0).getImageurl()).into(img_ad);
         // 业务
 
         BusinessAdapter businessAdapter = new BusinessAdapter(getContext());
         businessAdapter.setBean(response);
         yewuRcyclerView.setAdapter(businessAdapter);
-        GridLayoutManager manegerBusiness = new GridLayoutManager(getContext(),5);
+        GridLayoutManager manegerBusiness = new GridLayoutManager(getContext(), 5);
         yewuRcyclerView.setLayoutManager(manegerBusiness);
-        initOnClickBusiness(businessAdapter,response);
+        initOnClickBusiness(businessAdapter, response);
 
         // 发现头条
         for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
-            if (response.getResult().getCardlist().get(i).getDescription().equals("头条"));
+            if (response.getResult().getCardlist().get(i).getDescription().equals("头条")) ;
             Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getImageurl()).into(imgFindTop);
         }
 
 
-
-
-
         // 服务
-        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
-            if (response.getResult().getCardlist().get(i).getDescription().equals("田字小号专区")){
+        for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("田字小号专区")) {
                 ServeAdapter serveAdapter = new ServeAdapter(getContext());
                 serveAdapter.setNum(i);
                 serveAdapter.setBean(response);
                 serveRecycleView.setAdapter(serveAdapter);
-                GridLayoutManager serveManager = new GridLayoutManager(getContext(),2);
+                GridLayoutManager serveManager = new GridLayoutManager(getContext(), 2);
                 serveRecycleView.setLayoutManager(serveManager);
 
             }
@@ -245,8 +272,8 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         }
 
         //限时抢购
-        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
-            if (response.getResult().getCardlist().get(i).getDescription().equals("限时抢购")){
+        for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("限时抢购")) {
 
 
                 TimeLimitAdapter timeLimitAdapter = new TimeLimitAdapter(getContext());
@@ -266,11 +293,11 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         MyLoveAdapter myLoveAdapter = new MyLoveAdapter(getContext());
         myLoveAdapter.setBean(response);
         recycleViewMylove.setAdapter(myLoveAdapter);
-        GridLayoutManager myLoveManager = new GridLayoutManager(getContext(),2);
+        GridLayoutManager myLoveManager = new GridLayoutManager(getContext(), 2);
         recycleViewMylove.setLayoutManager(myLoveManager);
         //贷款
-        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
-            if (response.getResult().getCardlist().get(i).getDescription().equals("单帧小号横栏")){
+        for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("单帧小号横栏")) {
 
                 Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl()).into(imgDaiKuan);
 
@@ -278,10 +305,9 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         }
 
 
-
         //更多活动
-        for (int i = 0; i <response.getResult().getCardlist().size() ; i++) {
-            if (response.getResult().getCardlist().get(i).getDescription().equals("活动专区")){
+        for (int i = 0; i < response.getResult().getCardlist().size(); i++) {
+            if (response.getResult().getCardlist().get(i).getDescription().equals("活动专区")) {
                 Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(0).getImageurl()).into(imgOneMoreSports);
                 Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(1).getImageurl()).into(imgTwoMoreSports);
                 Picasso.with(getContext()).load(response.getResult().getCardlist().get(i).getData().get(2).getImageurl()).into(imgThreeMoreSports);
@@ -290,77 +316,76 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         }
 
 
-
-
-
-
     }
 
     private void initOnClickBusiness(BusinessAdapter businessAdapter, FindBean response) {
         businessAdapter.setOnClickLisenerRecycleView(new OnClickLisenerRecycleView() {
             @Override
             public void onClick(int position, RecyclerView.ViewHolder holder) {
-             switch (position){
-                 case 0:
+                switch (position) {
+                    case 0:
 
-                     Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
-                     break;
-                 case 1:
-                     Intent intentWeb = new Intent(getActivity(),ForumedWebVIewActivity.class);
-                     intentWeb.putExtra("论坛详情网址",URLValues.DISCOVER_CAR_MALL);
-                  //   Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
-                     startActivity(intentWeb);
-                     break;
-                 case 2:
-                     Intent intentWebFenqi = new Intent(getActivity(),ForumedWebVIewActivity.class);
-                     intentWebFenqi.putExtra("论坛详情网址",URLValues.DISCOVER_HIRE_CAR);
-                     //   Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
-                     startActivity(intentWebFenqi);
+                        Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Intent intentWeb = new Intent(getActivity(), ForumedWebVIewActivity.class);
+                        intentWeb.putExtra("论坛详情网址", URLValues.DISCOVER_CAR_MALL);
+                        //   Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                        startActivity(intentWeb);
+                        break;
+                    case 2:
+                        Intent intentWebFenqi = new Intent(getActivity(), ForumedWebVIewActivity.class);
+                        intentWebFenqi.putExtra("论坛详情网址", URLValues.DISCOVER_HIRE_CAR);
+                        //   Toast.makeText(getContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                        startActivity(intentWebFenqi);
 
-                 break;
-                 case 3:
-                     Intent intentKeepCar = new Intent(getContext(),ForumedWebVIewActivity.class);
-                     intentKeepCar.putExtra("论坛详情网址",URLValues.DISCOVER_SUBSIDY_HOME);
-                     startActivity(intentKeepCar);
-                     break;
-                 case 4:
-                     Intent intentTwoCar = new Intent(getContext(),ForumedWebVIewActivity.class);
-                     intentTwoCar.putExtra("论坛详情网址",URLValues.DISCOVER_FIND_CAR);
-                     startActivity(intentTwoCar);
-                     break;
-                 case 5:
-                     break;
-                 case 6:
-                     break;
-                 case 7:
-                     Intent intentGroupCar = new Intent(getContext(),ForumedWebVIewActivity.class);
-                     intentGroupCar.putExtra("论坛详情网址",URLValues.DISCOVER_GROUP_BUY);
-                     startActivity(intentGroupCar);
-                     break;
-                 case 8:
-                     Intent intentLoveCar = new Intent(getContext(),ForumedWebVIewActivity.class);
-                     intentLoveCar.putExtra("论坛详情网址",URLValues.DISCOVER_CAR_VALUATION);
-                     startActivity(intentLoveCar);
-                     break;
-                 case 9:
-                     break;
+                        break;
+                    case 3:
+                        Intent intentKeepCar = new Intent(getContext(), ForumedWebVIewActivity.class);
+                        intentKeepCar.putExtra("论坛详情网址", URLValues.DISCOVER_SUBSIDY_HOME);
+                        startActivity(intentKeepCar);
+                        break;
+                    case 4:
+                        Intent intentTwoCar = new Intent(getContext(), ForumedWebVIewActivity.class);
+                        intentTwoCar.putExtra("论坛详情网址", URLValues.DISCOVER_FIND_CAR);
+                        startActivity(intentTwoCar);
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        Intent intentGroupCar = new Intent(getContext(), ForumedWebVIewActivity.class);
+                        intentGroupCar.putExtra("论坛详情网址", URLValues.DISCOVER_GROUP_BUY);
+                        startActivity(intentGroupCar);
+                        break;
+                    case 8:
+                        Intent intentLoveCar = new Intent(getContext(), ForumedWebVIewActivity.class);
+                        intentLoveCar.putExtra("论坛详情网址", URLValues.DISCOVER_CAR_VALUATION);
+                        startActivity(intentLoveCar);
+                        break;
+                    case 9:
+                        break;
 
 
-
-             }
+                }
 
             }
         });
     }
 
 
+
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fin_fragment_search_img:
                 Intent intent = new Intent(getContext(), SearchKeyActivity.class);
                 startActivity(intent);
                 break;
         }
     }
+
+
 }

@@ -16,8 +16,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/10/8.
  */
 public class VideoAdapter extends BaseAdapter {
-    Context mContext;
-    VideoBean bean;
+    private Context mContext;
+    private VideoBean bean;
 
     public void setBean(VideoBean bean) {
         this.bean = bean;

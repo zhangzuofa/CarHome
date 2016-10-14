@@ -23,12 +23,12 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(setLayout(),container,false);
+        return inflater.inflate(setLayout(), container, false);
 
 
     }
 
-    protected  abstract int setLayout();
+    protected abstract int setLayout();
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -37,15 +37,18 @@ public abstract class BaseFragment extends Fragment {
         initDate();
 
     }
+
     protected abstract void initView();
 
 
-    protected <T extends View> T bindView(int id){
-        return (T)getView().findViewById(id);
+    protected <T extends View> T bindView(int id) {
+        return (T) getView().findViewById(id);
     }
-    protected <T extends View> T bindView(int id,View v){
-        return (T)v.findViewById(id);
+
+    protected <T extends View> T bindView(int id, View v) {
+        return (T) v.findViewById(id);
     }
+
     protected abstract void initDate();
 
 

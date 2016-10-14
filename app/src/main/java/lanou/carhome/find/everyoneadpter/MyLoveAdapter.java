@@ -18,8 +18,8 @@ import lanou.carhome.find.FindBean;
  */
 public class MyLoveAdapter extends RecyclerView.Adapter<MyLoveAdapter.ViewHolder> {
 
-    Context mContext;
-    FindBean bean;
+    private Context mContext;
+    private FindBean bean;
     private int num;
 
     public void setBean(FindBean bean) {

@@ -17,8 +17,8 @@ import lanou.carhome.find.FindBean;
  * Created by dllo on 16/9/23.
  */
 public class ForMeAdapter extends RecyclerView.Adapter<ForMeAdapter.ViewHolder> {
-    Context mContext;
-    FindBean bean;
+    private Context mContext;
+    private FindBean bean;
     private int num;
 
     public void setBean(FindBean bean) {

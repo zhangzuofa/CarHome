@@ -17,8 +17,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/10/8.
  */
 public class SmallRecommedAdapter  extends RecyclerView.Adapter{
-    Context mContext;
-    ReconmmedBean bean;
+    private Context mContext;
+    private ReconmmedBean bean;
     OnClickLisenerRecycleView onClickLisenerRecycleView;
 
     public void setOnClickLisenerRecycleView(OnClickLisenerRecycleView onClickLisenerRecycleView) {

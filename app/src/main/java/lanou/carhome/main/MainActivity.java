@@ -3,9 +3,12 @@ package lanou.carhome.main;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import lanou.carhome.R;
 import lanou.carhome.baseclass.BaseActivity;
@@ -114,13 +117,39 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     }
+    public interface MyTouchListener {
+        public void onTouchEvent(MotionEvent event);
+    }
 
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//
-////        if(newCarFragment instanceof IOnFocusListenable) {
-////            ((IOnFocusListenable) newCarFragment).onWindowFocusChanged(hasFocus);
-////        }
-//    }
+    // 保存MyTouchListener接口的列表
+    private ArrayList<MyTouchListener> myTouchListeners = new ArrayList<MainActivity.MyTouchListener>();
+
+    /**
+     * 提供给Fragment通过getActivity()方法来注册自己的触摸事件的方法
+     * @param listener
+     */
+    public void registerMyTouchListener(MyTouchListener listener) {
+        myTouchListeners.add(listener);
+    }
+
+    /**
+     * 提供给Fragment通过getActivity()方法来取消注册自己的触摸事件的方法
+     * @param listener
+     */
+    public void unRegisterMyTouchListener(MyTouchListener listener) {
+        myTouchListeners.remove( listener );
+    }
+
+    /**
+     * 分发触摸事件给所有注册了MyTouchListener的接口
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        for (MyTouchListener listener : myTouchListeners) {
+            listener.onTouchEvent(ev);
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+
 }

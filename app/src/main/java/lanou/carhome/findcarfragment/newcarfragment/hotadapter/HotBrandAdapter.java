@@ -16,8 +16,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/9/29.
  */
 public class HotBrandAdapter extends RecyclerView.Adapter<HotBrandAdapter.ViewHolder> {
-    Context mContext;
-    HotBrandBean bean;
+    private Context mContext;
+    private HotBrandBean bean;
 
     public void setBean(HotBrandBean bean) {
         this.bean = bean;

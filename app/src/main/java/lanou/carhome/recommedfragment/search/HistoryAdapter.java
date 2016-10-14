@@ -16,7 +16,7 @@ import lanou.carhome.find.dbtool.SearchCarNameBean;
  * Created by dllo on 16/10/10.
  */
 public class HistoryAdapter extends BaseAdapter {
-    Context mContext;
+    private Context mContext;
     public int i = 2;
 
     public HistoryAdapter(Context mContext) {

@@ -16,8 +16,8 @@ import lanou.carhome.find.FindBean;
  * Created by dllo on 16/9/26.
  */
 public class TimeLimitAdapter extends RecyclerView.Adapter<TimeLimitAdapter.ViewHolder> {
-    Context mContext;
-    FindBean bean;
+    private Context mContext;
+    private FindBean bean;
     private int num;
 
     public void setNum(int num) {

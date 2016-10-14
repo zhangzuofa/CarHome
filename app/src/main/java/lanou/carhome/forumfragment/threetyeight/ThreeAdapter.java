@@ -17,8 +17,8 @@ import lanou.carhome.R;
  */
 public class ThreeAdapter extends BaseAdapter {
 
-  Context mContext;
-    ThreeEightBean bean;
+    private Context mContext;
+    private ThreeEightBean bean;
 
     public void setBean(ThreeEightBean bean) {
         this.bean = bean;

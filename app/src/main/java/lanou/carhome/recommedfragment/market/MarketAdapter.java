@@ -16,8 +16,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/10/8.
  */
 public class MarketAdapter extends BaseAdapter {
-    Context mContext;
-    MarketBean bean;
+    private Context mContext;
+    private MarketBean bean;
 
     public void setBean(MarketBean bean) {
         this.bean = bean;

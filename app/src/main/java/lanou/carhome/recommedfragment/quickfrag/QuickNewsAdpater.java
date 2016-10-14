@@ -16,8 +16,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/10/8.
  */
 public class QuickNewsAdpater extends BaseAdapter {
-    Context mContext;
-  QuickNewsBean bean;
+    private Context mContext;
+    private QuickNewsBean bean;
 
     public void setBean(QuickNewsBean bean) {
         this.bean = bean;

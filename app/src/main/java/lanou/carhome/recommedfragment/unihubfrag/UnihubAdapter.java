@@ -16,7 +16,7 @@ import lanou.carhome.R;
  * Created by dllo on 16/10/8.
  */
 public class UnihubAdapter extends BaseAdapter {
-    UnhubBean bean;
+    private UnhubBean bean;
 
     public void setBean(UnhubBean bean) {
         this.bean = bean;

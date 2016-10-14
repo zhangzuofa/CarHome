@@ -16,13 +16,13 @@ import lanou.carhome.R;
  * Created by dllo on 16/9/22.
  */
 public class HotAdapter extends BaseAdapter {
-   HotBean bean;
+    private HotBean bean;
 
     public void setBean(HotBean bean) {
         this.bean = bean;
     }
 
-    Context mContext;
+    private Context mContext;
 
     public HotAdapter(Context mContext) {
         this.mContext = mContext;

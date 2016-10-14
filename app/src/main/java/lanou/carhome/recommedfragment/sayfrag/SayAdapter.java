@@ -16,8 +16,8 @@ import lanou.carhome.R;
  * Created by dllo on 16/10/8.
  */
 public class SayAdapter extends BaseAdapter {
-    Context mContext;
-    SayBean bean;
+    private Context mContext;
+    private SayBean bean;
 
     public void setBean(SayBean bean) {
         this.bean = bean;
