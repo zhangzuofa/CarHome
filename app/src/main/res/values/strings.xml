@@ -79,4 +79,10 @@
     <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
     <string name="logining">程序在后台执行, 请查看日志！</string>
     <string name="setting_su">设置成功</string>
+    <string name="push_modo">推送状态</string>
+    <string name="push_time">推送时间</string>
+    <string name="set_up_get_time">推送接受时间</string>
+    <string name="set_every_day">每日:8:00 - 01:00</string>
+    <string name="set_up_text_system">系统消息</string>
+    <string name="set_up_text_person">个人消息</string>
 </resources>

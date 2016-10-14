@@ -88,6 +88,7 @@
         <activity android:name=".recommedfragment.smallrecommedfrag.RecommedDetailActivity"/>
         <activity android:name=".personnal.setactivity.SetActivity"/>
         <activity android:name=".recommedfragment.MusicActivity"/>
+        <activity android:name=".personnal.setactivity.setuppush.SetUpPushActivity"/>
         <!-- Rich push 核心功能 since 2.0.6-->
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
