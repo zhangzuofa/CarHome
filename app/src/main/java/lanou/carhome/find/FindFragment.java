@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -28,6 +28,7 @@ import lanou.carhome.find.everyoneadpter.ForMeAdapter;
 import lanou.carhome.find.everyoneadpter.MyLoveAdapter;
 import lanou.carhome.find.everyoneadpter.ServeAdapter;
 import lanou.carhome.find.everyoneadpter.TimeLimitAdapter;
+import lanou.carhome.find.timebuy.LimitedBuyTextView;
 import lanou.carhome.forumfragment.formed.ForumedWebVIewActivity;
 import lanou.carhome.main.DividerItemDecoration;
 import lanou.carhome.recommedfragment.SearchKeyActivity;
@@ -66,6 +67,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
     float x2 = 0;
     float y1 = 0;
     float y2 = 0;
+    private RelativeLayout timeBuyRl;
 
 
     @Override
@@ -185,6 +187,7 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
         yewuRcyclerView = bindView(R.id.findFragment_topView_rcyelerView_yewu, viewFindTop);
         serveRecycleView = bindView(R.id.findFragment_topView_recyclerView_serve, viewFindTop);
         timeLimitRecycle = bindView(R.id.findFragment_topView_rcyelerView_timeLimit, viewFindTop);
+        timeBuyRl = bindView(R.id.time_buy_rl,viewFindTop);
 
         viewGoodsList = LayoutInflater.from(getContext()).inflate(R.layout.viewgoodslist, null);
         //    为我推荐 和喜欢还有
@@ -279,12 +282,23 @@ public class FindFragment extends BaseFragment implements View.OnClickListener {
                 TimeLimitAdapter timeLimitAdapter = new TimeLimitAdapter(getContext());
                 timeLimitAdapter.setBean(response);
                 timeLimitAdapter.setNum(i);
-                Log.d("尼玛", "i:" + i);
+
                 timeLimitRecycle.setAdapter(timeLimitAdapter);
                 LinearLayoutManager timeLimitManager = new LinearLayoutManager(getContext());
                 timeLimitManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
                 timeLimitRecycle.setLayoutManager(timeLimitManager);
+                LimitedBuyTextView limited = new LimitedBuyTextView(getContext(), response.getResult().getCardlist().get(i)
+                        .getRightbtn().getData());
+                //Log.d("噶", ""+response.getResult().getCardlist().get(i)
+//                        .getRightbtn().getData());
+
+              try {
+                  timeBuyRl.addView(limited.initTime());
+              }catch (NullPointerException e){
+
+              }
+
             }
 
         }

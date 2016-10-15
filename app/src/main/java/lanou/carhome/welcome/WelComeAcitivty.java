@@ -45,7 +45,7 @@ public class WelComeAcitivty extends BaseActivity implements View.OnClickListene
     @Override
     protected void initDate() {
         ininitRequestInternet();
-        rl.setVisibility(View.VISIBLE);
+
         inittime();
 
 
@@ -79,9 +79,12 @@ public class WelComeAcitivty extends BaseActivity implements View.OnClickListene
         GsonRequest<WelecomeBean>gsonRequest = new GsonRequest<WelecomeBean>(URLValues.URL_WELCOME, WelecomeBean.class, new Response.Listener<WelecomeBean>() {
             @Override
             public void onResponse(WelecomeBean response) {
+                  if (response.getResult().getIshavead() !=0){
+                      Picasso.with(WelComeAcitivty.this).load(response.getResult().getAd().getImgad().getImgurl()).into(img);
+                      rl.setVisibility(View.VISIBLE);
+                  }
 
 
-                Picasso.with(WelComeAcitivty.this).load(response.getResult().getAd().getImgad().getImgurl()).into(img);
 
 
 

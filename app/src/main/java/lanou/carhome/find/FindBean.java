@@ -50,6 +50,7 @@ public class FindBean {
          * description : 焦点图
          */
 
+
         private List<CardlistBean> cardlist;
 
         public List<CardlistBean> getCardlist() {
@@ -66,6 +67,8 @@ public class FindBean {
             private String description;
             private String imageurl;
 
+            private RightbtnBean rightbtn;
+
             public String getImageurl() {
                 return imageurl;
             }
@@ -80,6 +83,16 @@ public class FindBean {
              */
 
             private List<DataBean> data;
+            // private RightbtnBean rightbtn;
+
+
+            public RightbtnBean getRightbtn() {
+                return rightbtn;
+            }
+
+            public void setRightbtn(RightbtnBean rightbtn) {
+                this.rightbtn = rightbtn;
+            }
 
             public String getCardtype() {
                 return cardtype;
@@ -113,6 +126,7 @@ public class FindBean {
                 this.data = data;
             }
 
+
             public static class DataBean {
                 private int id;
                 private int productid;
@@ -138,7 +152,7 @@ public class FindBean {
                 private String link;
                 private String subtitle;
                 private String currentprice;
-                private  String subicontext;
+                private String subicontext;
 
                 public String getCurrentprice() {
                     return currentprice;
@@ -340,6 +354,95 @@ public class FindBean {
                     this.link = link;
                 }
             }
+
+            public static class RightbtnBean {
+                private String type;
+                private String data;
+                private String link;
+                /**
+                 * cardtype : 13
+                 * link :
+                 * pos : 2,5,98
+                 * cardlaunchid : 201
+                 */
+
+                private StatisticsBean statistics;
+
+                public String getType() {
+                    return type;
+                }
+
+                public void setType(String type) {
+                    this.type = type;
+                }
+
+                public String getData() {
+                    return data;
+                }
+
+                public void setData(String data) {
+                    this.data = data;
+                }
+
+                public String getLink() {
+                    return link;
+                }
+
+                public void setLink(String link) {
+                    this.link = link;
+                }
+
+                public StatisticsBean getStatistics() {
+                    return statistics;
+                }
+
+                public void setStatistics(StatisticsBean statistics) {
+                    this.statistics = statistics;
+                }
+
+                public static class StatisticsBean {
+                    private String cardtype;
+                    private String link;
+                    private String pos;
+                    private String cardlaunchid;
+
+                    public String getCardtype() {
+                        return cardtype;
+                    }
+
+                    public void setCardtype(String cardtype) {
+                        this.cardtype = cardtype;
+                    }
+
+                    public String getLink() {
+                        return link;
+                    }
+
+                    public void setLink(String link) {
+                        this.link = link;
+                    }
+
+                    public String getPos() {
+                        return pos;
+                    }
+
+                    public void setPos(String pos) {
+                        this.pos = pos;
+                    }
+
+                    public String getCardlaunchid() {
+                        return cardlaunchid;
+                    }
+
+                    public void setCardlaunchid(String cardlaunchid) {
+                        this.cardlaunchid = cardlaunchid;
+                    }
+                }
+
+
+            }
+
+
         }
     }
 }

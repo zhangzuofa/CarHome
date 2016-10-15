@@ -49,8 +49,10 @@ public class FIndCarFragment extends BaseFragment implements View.OnClickListene
         adapter.setTitle(titles);
         vp.setAdapter(adapter);
         tb.setupWithViewPager(vp);
+        vp.setOffscreenPageLimit(0);
         searchImg = bindView(R.id.findcar_fragemnt_search_img);
         searchImg.setOnClickListener(this);
+
 
 
 

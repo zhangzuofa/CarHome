@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/search_remove_text_color"
     >
-    <NumberPicker
-        android:id="@+id/from_minuteicker"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        >
+        <Button
+            android:id="@+id/pupurwindow_close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/select_hotcar"
+            android:text="取消"/>
+
+        <Button
+            android:id="@+id/pupurwindow_ok_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+            android:background="@drawable/select_hotcar"
+            android:text="确定"/>
+    </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="2"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+       >
+        <NumberPicker
+            android:id="@+id/from_minuteicker"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+        <NumberPicker
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/to_minuteicker"
+
+            android:layout_height="wrap_content" />
+
 
     </LinearLayout>
-    <NumberPicker
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:id="@+id/to_minuteicker"
-
-        android:layout_height="wrap_content" />
 
 
 

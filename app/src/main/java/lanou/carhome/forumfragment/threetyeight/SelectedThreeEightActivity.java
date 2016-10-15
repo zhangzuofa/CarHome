@@ -23,7 +23,7 @@ import lanou.carhome.volley.VollaySingleton;
 /**
  * Created by dllo on 16/9/22.
  */
-public class SelectedThreeEightActivity  extends BaseActivity implements View.OnClickListener {
+public class SelectedThreeEightActivity extends BaseActivity implements View.OnClickListener {
 
     private ArrayList<String> list;
     private int position;
@@ -46,13 +46,12 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         lv.setMode(PullToRefreshBase.Mode.BOTH);
 
 
-
     }
 
     @Override
     protected void initDate() {
         Intent intent = getIntent();
-        position = intent.getIntExtra("哈哈",1000);
+        position = intent.getIntExtra("哈哈", 1000);
         Log.d("SelectedThreeEightActiv", "position:" + position);
 
         list = new ArrayList<>();
@@ -77,7 +76,7 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         list.add(URLValues.TOP_ELEGANT_URL);
         list.add(URLValues.MODIFIED_RATIONAL_URL);
         list.add(URLValues.WAY_MOTORING_URL);
-        list.add(URLValues.FIRST_CAMP_URL );
+        list.add(URLValues.FIRST_CAMP_URL);
         //21
         list.add(URLValues.NEW_LIVE_URL);
         list.add(URLValues.HISTORICAL_TOPIC_URL);
@@ -85,20 +84,20 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         list.add(URLValues.HONEYMOON_URL);
         list.add(URLValues.SWEET_WEDDING_URL);
         list.add(URLValues.PHOTOGRAPHY_CLASS_URL);
-        list.add(URLValues.CAR_PARTY_URL );
+        list.add(URLValues.CAR_PARTY_URL);
         list.add(URLValues.BIKE_TRIBE_URL);
-        list.add(URLValues.GOSSIP_CLUB_URL );
-        list.add(URLValues. NORCO_TRAVELS_URL);
+        list.add(URLValues.GOSSIP_CLUB_URL);
+        list.add(URLValues.NORCO_TRAVELS_URL);
         //31
         list.add(URLValues.SOUTHWEST_TRAVELS_URL);
         list.add(URLValues.NORTHEAST_TRAVELS_URL);
         list.add(URLValues.NORTHWEST_TRAVELS_URL);
-        list.add(URLValues.SKY_TRAVELS_URL );
-        list.add(URLValues.SOUTH_TRAVELS_URL );
-        list.add(URLValues.HYZ_TRAVELS_URL );
-        list.add(URLValues.MACAO_TRAVELS_URL );
-        list.add(URLValues.OVERSEAS_TRAVELS_URL );
-        list.add(URLValues.SEA_PEARL_URL );
+        list.add(URLValues.SKY_TRAVELS_URL);
+        list.add(URLValues.SOUTH_TRAVELS_URL);
+        list.add(URLValues.HYZ_TRAVELS_URL);
+        list.add(URLValues.MACAO_TRAVELS_URL);
+        list.add(URLValues.OVERSEAS_TRAVELS_URL);
+        list.add(URLValues.SEA_PEARL_URL);
 
         innitRequestInternet();
         inintRefrshPull();
@@ -118,20 +117,22 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
                 url = list.get(position);
-                num = num +1;
-              url =url.replace("pageindex=1","pageindex="+num);
+                num = num + 1;
+                url = url.replace("pageindex=1", "pageindex=" + num);
 
 
                 GsonRequest<ThreeEightBean> gsonRequesty = new GsonRequest<ThreeEightBean>(url, ThreeEightBean.class,
                         new Response.Listener<ThreeEightBean>() {
                             @Override
                             public void onResponse(ThreeEightBean response) {
+                                try {
+                                    adapter.setBeanMore(response);
+                                } catch (NullPointerException e) {
+                                 e.printStackTrace();
+                                }
 
-                                adapter.setBeanMore(response);
 
                                 lv.onRefreshComplete();
-
-
 
 
                             }
@@ -142,7 +143,6 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
                     }
                 });
                 VollaySingleton.getInstance().addRequest(gsonRequesty);
-
 
 
             }
@@ -158,11 +158,7 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
                         adapter = new ThreeAdapter(SelectedThreeEightActivity.this);
                         adapter.setBean(response);
                         lv.setAdapter(adapter);
-                       initOnClickLissenner(response);
-
-
-
-
+                        initOnClickLissenner(response);
 
 
                     }
@@ -179,12 +175,12 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(SelectedThreeEightActivity.this,ThirtyNineWebViewActivity.class);
-                String str1 ="http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t";
+                Intent intent = new Intent(SelectedThreeEightActivity.this, ThirtyNineWebViewActivity.class);
+                String str1 = "http://forum.app.autohome.com.cn/forum_v7.0.0/forum/club/topiccontent-a2-pm2-v7.1.0-t";
                 String str2 = "-o0-p1-s20-c1-nt0-fs0-sp0-al0-cw360.json";
-                int num = response.getResult().getList().get(position-1).getTopicid();
-                String url  = str1 + num +str2;
-                intent.putExtra("39贴详情",url);
+                int num = response.getResult().getList().get(position - 1).getTopicid();
+                String url = str1 + num + str2;
+                intent.putExtra("39贴详情", url);
 
                 startActivity(intent);
 
@@ -193,15 +189,14 @@ public class SelectedThreeEightActivity  extends BaseActivity implements View.On
         });
 
 
-
     }
 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.selectedThEightActivity_img:
-               super.onBackPressed();
+                super.onBackPressed();
                 break;
         }
     }

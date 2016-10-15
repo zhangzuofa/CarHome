@@ -65,6 +65,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
 
 
 
+
     }
 
     @Override
@@ -109,6 +110,7 @@ public class PersonFragment extends BaseFragment implements View.OnClickListener
                 qq.authorize();//单独授权,OnComplete返回的hashmap是空的
                 qq.showUser(null);//授权并获取用户信息
                 break;
+
 
 
         }

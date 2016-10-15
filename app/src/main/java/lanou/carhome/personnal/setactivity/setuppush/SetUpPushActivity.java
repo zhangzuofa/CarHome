@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.PopupWindow;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import cn.jpush.android.api.JPushInterface;
 import lanou.carhome.R;
@@ -32,6 +34,7 @@ public class SetUpPushActivity extends BaseActivity implements View.OnClickListe
     private NumberPicker startMinuteicker;
     private NumberPicker endMinuteicker;
     private View view;
+    private TextView timeTv;
 
     @Override
     protected int setLayout() {
@@ -48,15 +51,23 @@ public class SetUpPushActivity extends BaseActivity implements View.OnClickListe
         view = LayoutInflater.from(this).inflate(R.layout.popuwindowgettime,null);
         startMinuteicker =bindView(R.id.from_minuteicker,view);
         endMinuteicker = bindView(R.id.to_minuteicker,view);
+        Button okBtn = bindView(R.id.pupurwindow_ok_btn,view);
+        okBtn.setOnClickListener(this);
+        Button closeBtn = bindView(R.id.pupurwindow_close_btn,view);
+        closeBtn.setOnClickListener(this);
+        timeTv = bindView(R.id.setup_time_text);
 
     }
 
     @Override
     protected void initDate() {
+        sp = getSharedPreferences("setPush", MODE_PRIVATE);
+        ed = sp.edit();
+        ed.commit();
         initSystemSwitch();
         dates = new String[]{"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00"
                 ,"12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
-
+        timeTv.setText("每日:"+ sp.getInt("start",00) +":00"+"-"+sp.getInt("end",24) +":00");
 
 
     }
@@ -64,9 +75,8 @@ public class SetUpPushActivity extends BaseActivity implements View.OnClickListe
     private void initSystemSwitch() {
 
 
-        sp = getSharedPreferences("setPush", MODE_PRIVATE);
-        ed = sp.edit();
-        ed.commit();
+
+
 
         systemSwitch.setChecked(sp.getBoolean("systemSwitch", true));
 //        ed.putBoolean("systemSwitch",true);
@@ -143,8 +153,38 @@ public class SetUpPushActivity extends BaseActivity implements View.OnClickListe
 
 
                 break;
+            case R.id.pupurwindow_ok_btn:
+             int start= startMinuteicker.getValue();
+
+             int end = endMinuteicker.getValue();
+                ed.putInt("start",start);
+                ed.putInt("end",end);
+            ed.commit();
+
+                timeTv.setText("每日:"+ start +":00"+"-"+end +":00");
+
+               timePopupWindow.dismiss();
+                break;
+            case R.id.pupurwindow_close_btn:
+                if (timePopupWindow != null|| timePopupWindow.isShowing()){
+
+                    timePopupWindow.dismiss();
+                }
+                break;
+
         }
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (timePopupWindow !=null&&timePopupWindow.isShowing() ){
+            timePopupWindow.dismiss();
+        }else {
+            this.finish();
+        }
 
     }
 }

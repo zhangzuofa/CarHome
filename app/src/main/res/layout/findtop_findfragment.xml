@@ -63,13 +63,28 @@
             android:id="@+id/findFragment_topView_recyclerView_serve">
 
         </android.support.v7.widget.RecyclerView>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
     <TextView
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="限时抢购"
         android:textColor="#0b0a0a"/>
+   <RelativeLayout
+       android:padding="10dp"
+       android:id="@+id/time_buy_rl"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       >
+
+   </RelativeLayout>
+
+</RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
