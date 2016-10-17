@@ -18,6 +18,7 @@ import lanou.carhome.R;
 public class HotAdapter extends BaseAdapter {
     private HotBean bean;
 
+
     public void setBean(HotBean bean) {
         this.bean = bean;
     }

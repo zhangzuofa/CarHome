@@ -134,7 +134,11 @@ public class SetUpPushActivity extends BaseActivity implements View.OnClickListe
                 timePopupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT,400);
                 timePopupWindow.setAnimationStyle(R.style.push_date_anim);
 
-                timePopupWindow.showAtLocation(returnImg, Gravity.BOTTOM, 0, 0);
+                    //这个parent的作用应该是调用其getWindowToken()方法获取窗口的Token,所以，只要是该窗口上的控件就可以了。
+                    //第二个参数是Gravity，可以使用|附加多个属性，如Gravity.LEFT|Gravity.BOTTOM。
+                    //第三四个参数是x,y偏移。
+
+                    timePopupWindow.showAtLocation(returnImg, Gravity.BOTTOM, 0, 0);
                 timePopupWindow.isShowing();
                     startMinuteicker.setDisplayedValues(dates);
                     startMinuteicker.setMinValue(0);

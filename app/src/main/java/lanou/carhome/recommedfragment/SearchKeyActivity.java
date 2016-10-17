@@ -68,7 +68,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
         listView = bindView(R.id.searchactivity_lisrview);
         webView = bindView(R.id.search_activity_web);
         mLiteOrm = LiteOrm.newSingleInstance(this, "myDataBase.db");
-        view = LayoutInflater.from(this).inflate(R.layout.topviewsaerchcar,null);
+        view = LayoutInflater.from(this).inflate(R.layout.topviewsaerchcar, null);
 
         ImageView historyChaImg = bindView(R.id.topviewsearch_img, view);
         historyChaImg.setOnClickListener(this);
@@ -85,7 +85,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
                 mLiteOrm.query(SearchCarNameBean.class);
         for (SearchCarNameBean bean : query) {
 
-            list.add(0,bean);
+            list.add(0, bean);
 
         }
 
@@ -93,11 +93,10 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
         historyAdapter.setArrayList(list);
         listView.setAdapter(historyAdapter);
 
-        if ( mLiteOrm.query(SearchCarNameBean.class).size()> 0){
-      listView.addHeaderView(view);
+        if (mLiteOrm.query(SearchCarNameBean.class).size() > 0) {
+            listView.addHeaderView(view);
 
         }
-
 
 
     }
@@ -105,8 +104,8 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
     private void initEdtext() {
 
+        // edittext 监控方法
         ed.addTextChangedListener(new TextWatcher() {
-
 
 
             @Override
@@ -133,17 +132,17 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
                             mLiteOrm.query(SearchCarNameBean.class);
                     for (SearchCarNameBean bean : query) {
 
-                        newList.add(0,bean);
+                        newList.add(0, bean);
 //
                     }
-                    if (newList.size()> 0){
+                    if (newList.size() > 0) {
                         view.setVisibility(View.VISIBLE);
                     }
 
                     historyAdapter.setArrayList(newList);
 
                     listView.setAdapter(historyAdapter);
-                  //  view.setVisibility(View.VISIBLE);
+                    //  view.setVisibility(View.VISIBLE);
                 } else {
                     view.setVisibility(View.GONE);
                     imgDelete.setVisibility(View.VISIBLE);
@@ -151,7 +150,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
                             mLiteOrm.query(SearchCarNameBean.class);
                     for (SearchCarNameBean bean : query) {
 
-                        newList.add(0,bean);
+                        newList.add(0, bean);
 
                     }
 //
@@ -164,6 +163,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
 
     }
+
     private void initPhoneSearch(final Editable s) {
 
         ed.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -223,7 +223,6 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
             GsonRequest<CarSesrchBean> gsonrequest = new GsonRequest<CarSesrchBean>(url, CarSesrchBean.class, new Response.Listener<CarSesrchBean>() {
 
 
-
                 @Override
                 public void onResponse(CarSesrchBean response) {
                     searchAdapter = new SearchAdapter(SearchKeyActivity.this);
@@ -248,14 +247,13 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //
-
-             //  historyAdapter.i =
+                try {
                     String str = null;
-                    str = EncodeUtil.encode(response.getResult().getWordlist().get(position-1).getName());
+                    str = EncodeUtil.encode(response.getResult().getWordlist().get(position - 1).getName());
 
                     String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword=" + str + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
                     //  Log.d("SearchKeyActivity", searchUrl);
-                    String carName = response.getResult().getWordlist().get(position-1).getName();
+                    String carName = response.getResult().getWordlist().get(position - 1).getName();
                     ed.setText(carName);
                     SearchCarNameBean bean = new SearchCarNameBean();
                     bean.setName(carName);
@@ -275,6 +273,40 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
                     WebSettings settings = webView.getSettings();
                     settings.setJavaScriptEnabled(true);
+
+
+                } catch (IndexOutOfBoundsException e) {
+                    //  e.printStackTrace();
+
+                    String str1 = list.get(position).getName();
+                    // String str = null;
+                    //  str1 = EncodeUtil.encode(response.getResult().getWordlist().get(position - 1).getName());
+
+                    String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword=" + str1 + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
+                    //  Log.d("SearchKeyActivity", searchUrl);
+                    String carName = str1;
+                    ed.setText(carName);
+//                    SearchCarNameBean bean = new SearchCarNameBean();
+//                    bean.setName(carName);
+//                dbTool.insertPerdson(bean);
+                    //                  mLiteOrm.insert(bean);
+
+
+                    webView.setVisibility(View.VISIBLE);
+                    webView.loadUrl(searchUrl);
+                    webView.setWebViewClient(new WebViewClient() {
+                        @Override
+                        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                            view.loadUrl(url);
+                            return true;
+                        }
+                    });
+
+                    WebSettings settings = webView.getSettings();
+                    settings.setJavaScriptEnabled(true);
+
+                }
+                //  historyAdapter.i =
 
 
 //                try {
@@ -310,7 +342,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-     final ArrayList<SearchCarNameBean> listZuixin = new ArrayList<>();
+        final ArrayList<SearchCarNameBean> listZuixin = new ArrayList<>();
 
         switch (v.getId()) {
             case R.id.recommed_search_activity_img:
@@ -318,16 +350,22 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
                 ed.setText("");
 
-                if (!ed.getText().equals("")) {
-                    listView.setVisibility(View.VISIBLE);
-                    webView.setVisibility(View.GONE);
+//                if (!ed.getText().equals("")) {
+                listView.setVisibility(View.VISIBLE);
+                historyAdapter.setArrayList(newList);
+                listView.setAdapter(historyAdapter);
 
+
+                if (webView.getVisibility() == View.VISIBLE) {
+                    webView.setVisibility(View.GONE);
                 }
+                //
+
+//                }
 
 
                 break;
             case R.id.recommed_search_activity_ed:
-
 
 
                 break;
@@ -352,7 +390,7 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
                                 mLiteOrm.query(SearchCarNameBean.class);
                         for (SearchCarNameBean bean : query) {
 
-                            listZuixin.add(0,bean);
+                            listZuixin.add(0, bean);
 
                         }
                         historyAdapter.setArrayList(listZuixin);

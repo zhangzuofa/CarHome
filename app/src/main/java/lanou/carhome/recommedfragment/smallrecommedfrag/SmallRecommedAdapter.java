@@ -41,12 +41,12 @@ public class SmallRecommedAdapter  extends RecyclerView.Adapter{
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 6){
-            View view = LayoutInflater.from(mContext).inflate(R.layout.item_threepicviewholder,null);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_threepicviewholder,parent,false);
             ThreeViewHolder threeViewHolder = new ThreeViewHolder(view);
             return threeViewHolder;
 
         }else {
-            View view = LayoutInflater.from(mContext).inflate(R.layout.item_recommed,null);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_recommed,parent,false);
             OneViewHolder oneViewHolder= new OneViewHolder(view);
             return oneViewHolder;
 

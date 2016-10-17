@@ -72,7 +72,7 @@ public class MoreActivity extends BaseActivity implements View.OnClickListener {
                    public void onClick(int position, MoreReAdaper.ViewHolder viewHolder) {
 
                       // Log.d("MoreActivity", response.getResult().getMetalist().get(0).getList().get(viewHolder.getLayoutPosition()).getName());
-
+//
                        EventBean eventBean = new EventBean();
                        eventBean.setContent(response.getResult().getMetalist().get(0).getList().get(viewHolder.getLayoutPosition()).getName());
                        eventBean.setNum(position);

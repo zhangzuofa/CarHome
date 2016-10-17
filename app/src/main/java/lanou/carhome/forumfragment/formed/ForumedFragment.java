@@ -75,7 +75,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
 
                 innitInternet();
                 innitSetBtnBackground();
-                Toast.makeText(getContext(), "刷新了30条", Toast.LENGTH_SHORT).show();
+
 
             }
 
@@ -188,6 +188,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
                         adapter.setBean(response);
                         forumListV.setAdapter(adapter);
                         inintOnClickLisener(response);
+                        Toast.makeText(getContext(), "刷新了30条", Toast.LENGTH_SHORT).show();
 
 
 

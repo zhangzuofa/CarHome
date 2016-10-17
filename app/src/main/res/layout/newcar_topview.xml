@@ -78,7 +78,7 @@
            android:layout_height="wrap_content"
            android:background="@drawable/select_hotcar"
            android:gravity="center"
-           android:text="入门代步"
+           android:text="武神座驾"
            android:textColor="#1a1818"
            android:layout_toRightOf="@+id/car_top_tv_simple"
            android:button="@null"/>
@@ -104,7 +104,7 @@
            android:layout_height="wrap_content"
            android:background="@drawable/select_hotcar"
            android:gravity="center"
-           android:text="入门代步哈哈"
+           android:text="想买SUV"
            android:textColor="#1a1818"
            android:layout_toRightOf="@+id/car_top_tv_white"
            android:button="@null"/>

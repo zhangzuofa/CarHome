@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final int FRAGMENT_FINDCAR=2;
     public static final int FRAGMENT_FIND = 3;
     public static final int FRAGMENT_PERSON = 4;
+    private RadioButton radioBtnRecom;
 
     @Override
     protected int setLayout() {
@@ -48,7 +49,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
-        RadioButton radioBtnRecom = bindView(R.id.main_radiobtn_recommed);
+        radioBtnRecom = bindView(R.id.main_radiobtn_recommed);
         RadioButton radioBtnForum = bindView(R.id.main_radiobtn_forum);
         RadioButton radioBtnFindCar = bindView(R.id.main_radiobtn_findcar);
         RadioButton radioBtnFind =bindView(R.id.main_radiobtn_find);
@@ -73,6 +74,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //当keyCode ==4 时监控到返回键
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             exit();
             return true;
@@ -81,6 +83,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void exit() {
+        // clickTime 记录第一次点击的时间
         if ((System.currentTimeMillis() - clickTime) > 2000) {
             Toast.makeText(getApplicationContext(), "再按一次退出汽车之家",
                     Toast.LENGTH_SHORT).show();
@@ -99,6 +102,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        transaction.replace(R.id.main_framelayout,new RecommedFragment());
 //        transaction.commit();
         showFragment(FRAGMENT_RECOMMED);
+        radioBtnRecom.setChecked(true);
+
 
 
 
@@ -113,38 +118,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_radiobtn_recommed:
                 showFragment(FRAGMENT_RECOMMED);
 
-//             if (recommedFragment !=null ){
-//                 transaction.show(recommedFragment);
-//             }
 //               // transaction.replace(R.id.main_framelayout,recommedFragment);
 
                 break;
             case R.id.main_radiobtn_forum:
                 showFragment(FRAGMENT_FORUM);
-//                if (forumFragment != null){
-//                    transaction.add(R.id.main_framelayout,forumFragment);
-//                }
+//
 //               // transaction.replace(R.id.main_framelayout,forumFragment);
                 break;
             case R.id.main_radiobtn_findcar:
                 showFragment(FRAGMENT_FINDCAR);
-//                if (fIndCarFragment!= null){
-//                    transaction.add(R.id.main_framelayout,fIndCarFragment);
-//                }
+//
 //            //    transaction.replace(R.id.main_framelayout,fIndCarFragment);
                 break;
             case R.id.main_radiobtn_find:
                 showFragment(FRAGMENT_FIND);
-//                if (findFragment!= null){
-//                    transaction.add(R.id.main_framelayout,findFragment);
-//                }
+//
            //     transaction.replace(R.id.main_framelayout,findFragment);
                 break;
             case R.id.main_radiobtn_personnal:
                 showFragment(FRAGMENT_PERSON);
-//                if (personFragment!=null){
-//                    transaction.add(R.id.main_framelayout,personFragment);
-//                }
+//
               //  transaction.replace(R.id.main_framelayout,personFragment);
                 break;
 

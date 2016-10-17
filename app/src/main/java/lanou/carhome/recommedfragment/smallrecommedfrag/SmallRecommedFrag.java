@@ -93,6 +93,7 @@ public class SmallRecommedFrag extends BaseFragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+
                     }
                 });
                 VollaySingleton.getInstance().addRequest(gsonRequest);
