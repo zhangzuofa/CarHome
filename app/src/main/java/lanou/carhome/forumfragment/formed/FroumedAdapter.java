@@ -57,7 +57,7 @@ public class FroumedAdapter extends BaseAdapter {
         }
         viewHolder.tvTitle.setText(bean.getResult().getList().get(position).getTitle());
         viewHolder.tvForumed.setText(bean.getResult().getList().get(position).getBbsname());
-        viewHolder.tvNum.setText("" + bean.getResult().getList().get(position).getReplycounts() + "跟帖");
+        viewHolder.tvNum.setText(bean.getResult().getList().get(position).getReplycounts() + "跟帖");
         Picasso.with(mContext).load(bean.getResult().getList().get(position).getSmallpic()).into(viewHolder.img);
 
 

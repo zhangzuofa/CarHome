@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#ffffff"
-        android:orientation="horizontal"
+
         >
         <ImageView
             android:layout_margin="10dp"
@@ -17,17 +17,17 @@
             />
         <TextView
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="精选推荐"
-            android:textSize="23sp"
-            android:gravity="center"
+            android:textSize="20sp"
+           android:layout_centerInParent="true"
             android:textColor="#000000"
             />
 
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ListView
         android:layout_width="match_parent"

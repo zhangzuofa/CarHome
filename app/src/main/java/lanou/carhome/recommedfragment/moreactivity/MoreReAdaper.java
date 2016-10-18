@@ -72,7 +72,7 @@ public class MoreReAdaper  extends RecyclerView.Adapter<MoreReAdaper.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView img;
         private TextView tv;
-   
+
         public ViewHolder(View itemView) {
             super(itemView);
             img = (ImageView) itemView.findViewById(R.id.item_moreactivity_img);

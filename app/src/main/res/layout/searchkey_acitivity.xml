@@ -67,6 +67,13 @@
             android:layout_height="match_parent"
             >
         </ListView>
+        <ListView
+            android:id="@+id/history_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </ListView>
         <WebView
             android:visibility="gone"
             android:id="@+id/search_activity_web"
