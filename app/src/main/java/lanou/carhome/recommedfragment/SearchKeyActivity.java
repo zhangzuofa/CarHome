@@ -277,33 +277,38 @@ public class SearchKeyActivity extends BaseActivity implements View.OnClickListe
 
                 } catch (IndexOutOfBoundsException e) {
                     //  e.printStackTrace();
+                    try {
+                        String str1 = list.get(position).getName();
+                        // String str = null;
+                        //  str1 = EncodeUtil.encode(response.getResult().getWordlist().get(position - 1).getName());
 
-                    String str1 = list.get(position).getName();
-                    // String str = null;
-                    //  str1 = EncodeUtil.encode(response.getResult().getWordlist().get(position - 1).getName());
-
-                    String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword=" + str1 + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
-                    //  Log.d("SearchKeyActivity", searchUrl);
-                    String carName = str1;
-                    ed.setText(carName);
+                        String searchUrl = "http://sou.m.autohome.com.cn/h5/1.1/search.html?type=0&keyword=" + str1 + "&night=0&bbsid=0&lng=121.550912&lat=38.889734&nettype=5&netprovider=0";
+                        //  Log.d("SearchKeyActivity", searchUrl);
+                        String carName = str1;
+                        ed.setText(carName);
 //                    SearchCarNameBean bean = new SearchCarNameBean();
 //                    bean.setName(carName);
 //                dbTool.insertPerdson(bean);
-                    //                  mLiteOrm.insert(bean);
+                        //                  mLiteOrm.insert(bean);
 
 
-                    webView.setVisibility(View.VISIBLE);
-                    webView.loadUrl(searchUrl);
-                    webView.setWebViewClient(new WebViewClient() {
-                        @Override
-                        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                            view.loadUrl(url);
-                            return true;
-                        }
-                    });
+                        webView.setVisibility(View.VISIBLE);
+                        webView.loadUrl(searchUrl);
+                        webView.setWebViewClient(new WebViewClient() {
+                            @Override
+                            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                                view.loadUrl(url);
+                                return true;
+                            }
+                        });
 
-                    WebSettings settings = webView.getSettings();
-                    settings.setJavaScriptEnabled(true);
+                        WebSettings settings = webView.getSettings();
+                        settings.setJavaScriptEnabled(true);
+
+                    } catch (IndexOutOfBoundsException e1) {
+
+                    }
+
 
                 }
                 //  historyAdapter.i =

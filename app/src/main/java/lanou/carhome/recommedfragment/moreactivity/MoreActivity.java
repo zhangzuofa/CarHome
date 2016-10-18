@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -37,6 +38,8 @@ public class MoreActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initView() {
         rc = bindView(R.id.more_Activity_recyleV);
+        ImageView img = bindView(R.id.more_Activity_img);
+        img.setOnClickListener(this);
 
 
     }
@@ -44,13 +47,9 @@ public class MoreActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initDate() {
 
-       initRequestInternet();
-        rc.addItemDecoration(new DividerItemDecoration(this,RecyclerView.VERTICAL));
-        rc.addItemDecoration(new DividerItemDecoration(this,RecyclerView.HORIZONTAL));
-
-
-
-
+        initRequestInternet();
+        rc.addItemDecoration(new DividerItemDecoration(this, RecyclerView.VERTICAL));
+        rc.addItemDecoration(new DividerItemDecoration(this, RecyclerView.HORIZONTAL));
 
 
     }
@@ -62,27 +61,27 @@ public class MoreActivity extends BaseActivity implements View.OnClickListener {
                 moreAdapter = new MoreReAdaper(MoreActivity.this);
                 moreAdapter.setBean(response);
                 rc.setAdapter(moreAdapter);
-                GridLayoutManager manager = new GridLayoutManager(MoreActivity.this,3);
+                GridLayoutManager manager = new GridLayoutManager(MoreActivity.this, 3);
                 rc.setLayoutManager(manager);
                 ItemTouchHelper.Callback callback = createCallback();
                 mHelper = new ItemTouchHelper(callback);
                 mHelper.attachToRecyclerView(rc);
-               moreAdapter.setOnClickLisenerRcycleMoreActy(new OnClickLisenerRcycleMoreActy() {
-                   @Override
-                   public void onClick(int position, MoreReAdaper.ViewHolder viewHolder) {
+                moreAdapter.setOnClickLisenerRcycleMoreActy(new OnClickLisenerRcycleMoreActy() {
+                    @Override
+                    public void onClick(int position, MoreReAdaper.ViewHolder viewHolder) {
 
-                      // Log.d("MoreActivity", response.getResult().getMetalist().get(0).getList().get(viewHolder.getLayoutPosition()).getName());
+                        // Log.d("MoreActivity", response.getResult().getMetalist().get(0).getList().get(viewHolder.getLayoutPosition()).getName());
 //
-                       EventBean eventBean = new EventBean();
-                       eventBean.setContent(response.getResult().getMetalist().get(0).getList().get(viewHolder.getLayoutPosition()).getName());
-                       eventBean.setNum(position);
-                       EventBus.getDefault().post(eventBean);
-                       MoreActivity.this.finish();
+                        EventBean eventBean = new EventBean();
+                        eventBean.setContent(response.getResult().getMetalist().get(0).getList().get(viewHolder.getLayoutPosition()).getName());
+                        eventBean.setNum(position);
+                        EventBus.getDefault().post(eventBean);
+                        MoreActivity.this.finish();
+                      //  Toast.makeText(MoreActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
 
 
-
-                   }
-               });
+                    }
+                });
 
 
             }
@@ -137,19 +136,19 @@ public class MoreActivity extends BaseActivity implements View.OnClickListener {
                 return super.isLongPressDragEnabled();
             }
 
-//            //选择性覆写 返回值决定是否启用滑动功能
+            //            //选择性覆写 返回值决定是否启用滑动功能
 //            @Override
 //            public boolean isItemViewSwipeEnabled() {
 //                return super.isItemViewSwipeEnabled();
 //            }
 // 当长按选中item的时候(拖动开始的时候)调用
-@Override
-public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
-    if (actionState != ItemTouchHelper.ACTION_STATE_IDLE){
-        viewHolder.itemView.setBackgroundColor(Color.LTGRAY);
-    }
-    super.onSelectedChanged(viewHolder, actionState);
-}
+            @Override
+            public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+                if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
+                    viewHolder.itemView.setBackgroundColor(Color.LTGRAY);
+                }
+                super.onSelectedChanged(viewHolder, actionState);
+            }
 
             // 当手指松开的时候(拖动完成的时候调用
             @Override
@@ -163,7 +162,7 @@ public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionStat
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.more_Activity_img:
                 onBackPressed();
                 break;

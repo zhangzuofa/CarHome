@@ -77,6 +77,7 @@ public class NewCarFragment extends BaseFragment{
         carPic = new ArrayList<>();
         requestInternetCarBrandSort();
 
+
     }
 
     private void requestInternetCarBrandSort() {
