@@ -115,7 +115,7 @@ public class ForumedFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void innitSetBtnBackground() {
-        ArrayList<Button>buttons = new ArrayList<>();
+        ArrayList<Button> buttons = new ArrayList<>();
         buttons.add(btnWife);
         buttons.add(btnBesuty);
         buttons.add(btnTop);
